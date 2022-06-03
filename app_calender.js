@@ -140,15 +140,15 @@ else if (runTime<mainApp.startTime){
     });
   }
   console.log("Pre run time is at "+ runTime+" hours on each valid day")
-}
+} 
 
 //shdeule archiving of output file to after the last request
 
-schedule.scheduleJob('30 7 * * *',function(){
+schedule.scheduleJob('00 '+mainApp.endTime+' * * *',function(){
   console.log(new Date().toUTCString())
   console.log("Cron job executed now")
   console.log(new Date().toUTCString())
-  archiveOutput.archive("./output.json","./archives","./output/output_data.xlsx","./archives")
+  archiveOutput.archiver("./output.json","./archives","./output/output_data.xlsx","./archives")
 })
 
 
