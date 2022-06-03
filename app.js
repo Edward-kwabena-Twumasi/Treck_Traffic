@@ -132,7 +132,7 @@ exports.get_runTime=function get_runTime(params) {
   req_times24hr.sort(function(a, b) {
       return a - b;
     });
-  console.log("start..."+req_times24hr[0]/60+"...............end ....."+req_times24hr[req_times24hr.length-1]/60)
+  console.log("Requests start time(hrs) .. "+req_times24hr[0]/60+".... Requests end time(hrs) ....."+req_times24hr[req_times24hr.length-1]/60)
   var startTime=req_times24hr[0]/60
   var endTime=req_times24hr[req_times24hr.length-1]/60
   exports.startTime=startTime
@@ -150,7 +150,7 @@ req_times24hr = [...new Set(req_times24hr)]
 req_times24hr.sort(function(a, b) {
     return a - b;
   });
-console.log("start..."+req_times24hr[0]/60+"| end ..."+req_times24hr[req_times24hr.length-1]/60)
+console.log("Start making requests at ... "+req_times24hr[0]/60+" | end Reuests at ... "+req_times24hr[req_times24hr.length-1]/60)
 var startTime=req_times24hr[0]/60
 var endTime=req_times24hr[req_times24hr.length-1]/60
 

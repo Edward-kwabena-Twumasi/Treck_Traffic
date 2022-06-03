@@ -24,7 +24,7 @@ exports.createOutputDir=function createDir(fs,path,dirName,workBook,myxlsx,prepa
 
         console.log("Output folder already exists");
         console.log("Deleting to recreate it... @ filesys.js, line 11, 14")
-        fs.rmdir(dirName, { recursive: true },  () => {
+        fs.rm(dirName, { recursive: true },  () => {
           console.log("Output folder successfully delected")
 
           fs.mkdir(dirName,  () => {
