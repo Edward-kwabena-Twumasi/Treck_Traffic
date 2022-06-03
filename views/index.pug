@@ -1,0 +1,18 @@
+extends layout
+
+block layout-content
+  div.View
+    h1.Banner Treck Traffic
+    div.Message
+      div.Title
+        h3 Treck traffic is an automatic google traffic data analyser and archiver
+        h1 Get to Know about the traffic on our roads
+    - const dirname=__dirname    
+    div.NavButtons
+      a#excelDb(href="./output"  )
+          div.NavButton  Output Database
+      a#jsonDb(href="./backup")
+          div.NavButton Database Backup   
+      ul.archives 
+        li 
+           a#archive(href="./archives") Download Archive
