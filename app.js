@@ -343,7 +343,7 @@ fs.readFile("./output/request_data24hrTemp.json")
  console.log("----------------------------------------------")
  console.log("File not ready for reading @ app.js, line 278")
  console.log("Creating it...")
-console.log("----------------------------------------------")
+ console.log("----------------------------------------------")
 
     //
    parse_tripTimes();
@@ -388,6 +388,8 @@ console.log(error)
 fs.writeFile("./output/request_data24hrTemp.json",JSON.stringify(request_data24hrTemp,null,2))
 .then((data) => {
   console.log("Temporary/template requests data file succesfully created @ app.js, line 368")
+  console.log("------------READY TO MAKE REQUESTS-------------")
+
 }).catch((error) =>
 console.log("Couldnt create temporrary/template requests data file @ app.js , line 368")
 )

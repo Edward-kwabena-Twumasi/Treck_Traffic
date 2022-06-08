@@ -115,6 +115,8 @@ else if (runTime<mainApp.startTime){
     }, function(){
       const departure = new Date();
 
+      console.log("Checking valid days for execution")
+
       if (checkValidDay(days[departure.getDay()])) {
         console.log(`On ${days[departure.getDay()]} we will run the application`)
       console.log('Scheduling done.Waiting for execution');
@@ -127,7 +129,6 @@ else if (runTime<mainApp.startTime){
     cancelinitjob=true;
     //check valid days for execution
     console.log("----------------------------------")
-    console.log("Checking valid days for execution")
 
     
     } else {
@@ -170,7 +171,6 @@ const job = schedule.scheduleJob({ start: startTime, end: endTime, hour:runTime,
   console.log(days[departure.getDay()]);
 
 OutputFolder.createOutputDir(fs,path,dirName,wb,myxlsx,prepareRequests)
-  console.log(process.env.run_time)
 
 if (cancelinitjob) {
   initJob.cancel();

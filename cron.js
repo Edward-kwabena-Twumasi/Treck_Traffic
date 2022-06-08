@@ -6,74 +6,64 @@ var allrequests=0;
 var currentDatabase=[];
 exports.makeReqWriteOutput=function name(params) {
   
- fs.readFile("output.json")
-.then((data) => {
-   currentDatabase=JSON.parse(data);
+  fs.readFile("./output/output.json")
+  .then((data) => {
+  currentDatabase=JSON.parse(data);
 
-}).catch((error) =>
-console.log(error));
-var dates=[];
-fs.readFile("./output/request_data24hr.json")
-.then((data) => {
-  const requestArray=JSON.parse(data);
- 
-  for (const request in requestArray) {
-dates.push(new Date(requestArray[request].time));
-   
-  }
- 
-  for (const dait in dates) {
-    //console.log(`execute at ${dates[dait]}`);
-    var id=0;
-    requestArray[dait]["strings"].forEach(request => {
-     
-    //   console.log(requestArray[dait].strings[id])
-    //   console.log("...")
-    //   console.log(requestArray[dait].ids[id])
-    //  /// getTraffic.getTrafficInfo(request,currentDatabase,requestArray[dait].ids[id],requestArray[dait].time);
+  console.log("Old database file read @ cron.js line 9 to 11")
+  console.log("Last item")
+  console.log(currentDatabase[currentDatabase.length-1])
+  })
+  .catch((error) =>
+  console.log("Making new request json output file"));
 
-      id+=1;
+  var dates=[];
+  //Read request file and schedule requests
 
-    });
-    allrequests+=id;
-    const job = schedule.scheduleJob(dates[dait], function(){
-      // console.log(`executed at ${dates[dait]}`);
-      // console.log("---")
-     
-var ar=[]
-var id=0;
+  fs.readFile("./output/request_data24hr.json")
+  .then((data) => {
+    const requestArray=JSON.parse(data);
+  
+    for (const request in requestArray) {
+   dates.push(new Date(requestArray[request].time));
+    
+    }
+  
+    for (const dait in dates) {
+      //console.log(`execute at ${dates[dait]}`);
+      var id=0;
       requestArray[dait]["strings"].forEach(request => {
-       
-        console.log(requestArray[dait].strings[id])
-        console.log("...")
-        console.log(requestArray[dait].ids[id])
-        getTraffic.getTrafficInfo(request,currentDatabase,requestArray[dait].ids[id],requestArray[dait].time);
-
+      
         id+=1;
 
       });
-     
-   
-    });
-  
-  }
-  console.log(`Scheduled  ${allrequests} requests  @ cron.js, line 50`);
+      allrequests+=id;
+      const job = schedule.scheduleJob(dates[dait], function(){
+        // console.log(`executed at ${dates[dait]}`);
+        // console.log("---")
+      
  
-})}
-                      
-//console.log(dates.length);
-//function to add hours to date
+           var id=0;
+           requestArray[dait]["strings"].forEach(request => {
+        
+          console.log(requestArray[dait].strings[id])
+          console.log("...")
+          console.log(requestArray[dait].ids[id])
+          getTraffic.getTrafficInfo(request,currentDatabase,requestArray[dait].ids[id],requestArray[dait].time);
 
-Date.prototype.addHours = function(h) {
-  this.setTime(this.getTime() + (h*60*60*1000));
-  return this;
-}
+          id+=1;
+          console.log(id)
 
-//function to add minuts to date
-Date.prototype.addMinutes = function(m) {
-  this.setTime(this.getTime() + (m*60*1000));
-  return this;
-}
-
+        });
+      
+    
+      });
+    
+    }
+    console.log(`Scheduled  ${allrequests} requests  @ cron.js, line 50`);
+  
+  })}
+                        
+  
 
 
