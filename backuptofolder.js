@@ -29,7 +29,14 @@ var copyFile = (file, dir2)=>{
   //copy files from archivehistory folder into backup folder
   fs.readdir("./archivehistory",(err,files)=>{
       if (err) {
-        console.log("Problem reading folder")  
+        console.log("Problem reading folder archivehistory folder.Not found")
+        fs.mkdir("./archivehistory", { recursive: true }, (err) => {
+          if (err) {
+            console.log("Couldnt create it either")
+          }
+          else
+           console.log("Folder created")
+        })  
       } else {
         console.log("----------------------------------------------")
         console.log("Creating a backup of  archivehistory")

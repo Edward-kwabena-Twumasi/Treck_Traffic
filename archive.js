@@ -23,7 +23,7 @@ else{
     }  
   //console.log(stats.size/1024+"  kb");
   var newdata=[]
-  if (stats.size/1024>120 || range.e.r>500) {
+  if (stats.size/1024>5120 || range.e.r>500,000) {
 
     //read json output file
     fs.readFile(filename, (err, data) => {

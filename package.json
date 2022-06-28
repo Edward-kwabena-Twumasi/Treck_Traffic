@@ -2,10 +2,10 @@
   "name": "nodeproject",
   "version": "1.0.0",
   "description": "",
-  "main": "app_calender.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app_calender.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -15,11 +15,11 @@
     "express": "^4.17.3",
     "jszip": "^3.9.1",
     "node-schedule": "^2.1.0",
+    "pm2": "^5.2.0",
     "pug": "^3.0.2",
     "xlsx": "^0.18.5"
   },
   "engines": {
     "node": "16.14.2"
   }
-
 }

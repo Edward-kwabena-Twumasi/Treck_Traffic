@@ -27,7 +27,7 @@ var calender=myxlsx.utils.sheet_to_json(ws);
 //assign start date to start variable
 const start=calender[0].start_date.split(".");
 //assign stop date to stop variable
-const stop=calender[0].stop_date.split("/");
+const stop=calender[0].stop_date.split(".");
 
 //get day,month and year from start date and 
 //construct datetime called startTime
@@ -149,7 +149,7 @@ schedule.scheduleJob('00 '+mainApp.endTime+' * * *',function(){
   console.log(new Date().toUTCString())
   console.log("Cron job executed now")
   console.log(new Date().toUTCString())
-  archiveOutput.archiver("./output.json","./archives","./output/output_data.xlsx","./archives")
+  archiveOutput.archiver("./output/output.json","./archives","./output/output_data.xlsx","./archives")
 })
 
 
@@ -233,9 +233,8 @@ server.get('/backup',(req,res)=>{
     res.download("./output/output.json",(err) =>
     { 
   if (err) {
-    res.send({
-      msg:"Output backup file not available for download"
-    })
+    res.send("<h1>Output backup file not available for download</h1>"
+    )
   }
      });
 
@@ -247,9 +246,8 @@ server.get('/output',(req,res)=>{
   res.download("./output/output_data.xlsx",(err) =>
   { 
 if (err) {
-  res.send({
-    msg:"Output file not available for download"
-  })
+  res.send("<h1>Output file not available for download</h1>"
+  )
 }
    });
 
@@ -278,7 +276,10 @@ function downloadFile(res) {
       .map((file) => ({ file, mtime: fs.lstatSync(path.join(dir, file)).mtime }))
       .sort((a, b) => b.mtime.getTime() - a.mtime.getTime());
   };
-zipfile="./archivehistory/"+getMostRecentFile("./archivehistory").file
+  if(getMostRecentFile("./archivehistory")==undefined)
+ res.send("<h1>No archives available yet</h1>")
+else
+ { zipfile="./archivehistory/"+getMostRecentFile("./archivehistory").file
   res.download(zipfile,(err) =>
   { 
 if (err) {
@@ -287,10 +288,13 @@ if (err) {
     msg:"problem downloading file-"
   })
 }
-   });
+   });}
 }
+
+
 //Set static files for express serve them
 server.use(express.static(path.join(__dirname, "public")));
+ 
 server.use(express.static(path.join(__dirname, "output")));
 server.use(express.static(path.join(__dirname, "archives")));
 

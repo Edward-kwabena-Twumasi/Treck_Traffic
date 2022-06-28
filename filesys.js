@@ -1,5 +1,5 @@
 //const backup=require('./backuptofolder')
-
+const fs =require("fs")
 exports.createOutputDir=function createDir(fs,path,dirName,workBook,myxlsx,prepareRequests) {
   var copyFile = (file, dir2)=>{
     //include the fs, path modules
@@ -20,8 +20,7 @@ exports.createOutputDir=function createDir(fs,path,dirName,workBook,myxlsx,prepa
   
     if (err && err.code=='EEXIST')
     {
-      //backup.backupFiles()
-
+      
         console.log("Output folder already exists");
         console.log("Deleting to recreate it... @ filesys.js, line 11, 14")
         fs.rm(dirName, { recursive: true },  () => {

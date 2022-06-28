@@ -5,8 +5,26 @@ const zip = new JSZip();
 exports.createZip= function zipFolder( downloadZip) {
     
  fs.readdir("./archives",(err,files)=>{
-    console.log(files)
-    files.forEach(file =>{
+ //if error reading folder
+ if(err){
+ //creae this directory
+ console.log("archives folder missing.Create new one")
+
+ fs.mkdir("./archives",(err,path)=>{
+ if(err){
+ console.log("Couldnt create archives folder")
+ 
+ }
+ else
+   console.log(path +"folder created")
+ 
+ })
+ 
+ }
+//folder read
+ else
+ {
+  files.length<1? console.log("No archives found in arcives folder"): files.forEach(file =>{
 
   
  fs.readFile("./archives/"+file, (err, data) => {
@@ -40,5 +58,7 @@ setTimeout(() => {
 }  
 })
 })
+ }
+//forearch ends here
 })
 }
