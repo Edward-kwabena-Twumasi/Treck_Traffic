@@ -1,6 +1,10 @@
-console.log("----------------------------------------------")
- console.log("Program execution has began")
- console.log("----------------------------------------------")
+//Program main entry point
+//Takes functions exported from various modules or files
+//and combines them logically to enable program run smoothly
+console.log("-----------------------------")
+console.log("Program execution has began")
+console.log("-----------------------------")
+
 const schedule = require('node-schedule');
 const express=require('express');
 const path=require('path')
@@ -24,8 +28,10 @@ var archives=[]
 
 var ws=wb.Sheets[mysheets[2]];
 var calender=myxlsx.utils.sheet_to_json(ws);
+
 //assign start date to start variable
 const start=calender[0].start_date.split(".");
+
 //assign stop date to stop variable
 const stop=calender[0].stop_date.split(".");
 
@@ -34,29 +40,21 @@ const stop=calender[0].stop_date.split(".");
 var day=start[0]*1,month=start[1]*1,year=start[2]*1;
 const startTime = new Date(Date.UTC(year,month-1,day));
 console.log(`${startTime}`);
+
 //get day,month and year from stop date and 
 //construct dateTime from it
 var sday=stop[0]*1,smonth=stop[1]*1,syear=stop[2]*1;
 const endTime = new Date(Date.UTC(syear,smonth-1,sday));
 console.log(endTime.toUTCString());
 
-
-//const rule = new schedule.RecurrenceRule();
-
-// OutputFolder.createOutputDir(fs,dirName,wb,myxlsx,()=>{})
-// function checkValidDay(day) {
-//   return calender[0][day]
-// }
-
-//make a backup of zipped archvive files
-
+//Make backup of files
 backup.backupFiles()
+
 //Function to prepare and make requests ready 
 function prepareRequests() {
   mainApp.parse_tripTimes
 mainApp.sort_ttseries
 mainApp.createDayRequests
-//mainApp.genRequestString
   mainApp.readRequestFile(mainApp.parse_tripTimes,mainApp.sort_ttseries,mainApp.createDayRequests)
 
 }
@@ -219,15 +217,12 @@ server.set("views", path.join(__dirname, "views"));
 server.set("view engine", "pug");
 //render home page on navigation to root
 server.get('/',(req,res)=>{
-  // fs.readdir("./archives",(err, files) => {
-  //   console.log(files);
-  // archives=files
   
-  // })
   console.log("Home route loaded or refreshed")
   res.render("index", { title: "Home" });
 
 })
+
 //download json backup file
 server.get('/backup',(req,res)=>{
     res.download("./output/output.json",(err) =>
@@ -300,5 +295,5 @@ server.use(express.static(path.join(__dirname, "archives")));
 
 //Let server listen on the specified port
 server.listen(port,()=>{
-  console.log("server listening on "+port +`at ${(new Date().toUTCString())}`)
+  console.log("server listening on "+port +` at ${(new Date().toUTCString())}`)
 })

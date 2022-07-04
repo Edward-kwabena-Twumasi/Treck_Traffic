@@ -1,16 +1,21 @@
+//App.js file owns the functionalities of reading and preprocessing 
+//the input file the program is to run with and then creating 
+//a request file to be scheduled by the program
+
 const myxlsx=require("xlsx");
 
 const fs = require('fs/promises')
 const requestsNdOutput=require('./cron')
 
+//Read input file from the output folder 
+//if it yet exists or access it from root folder
+
 var input_work_book;
 try {
  input_work_book= myxlsx.readFile("./output/input_data.xlsx",{})
 } catch (error) {
-  //console.log("File doesnt exist")
   input_work_book= myxlsx.readFile("./input_data.xlsx",{})
-  //console.log(input_work_book)
-
+  
 }
 
 
@@ -19,7 +24,6 @@ var mysheets=input_work_book.SheetNames;
 
 var trip_times=input_work_book.Sheets[mysheets[3]];
 var od_pairs=input_work_book.Sheets[mysheets[1]];
-//var calender=input_work_book.Sheets[mysheets[2]];
 var err=input_work_book.Sheets[mysheets[5]];
 console.log(err)
 var trip_times=myxlsx.utils.sheet_to_json(trip_times);
@@ -31,6 +35,7 @@ var starttimes=[];
 var stoptimes=[];
 var req_times24hr=[];
 var ids=[]
+
 //Contains ids with all their request times as an object
 var totalreqtimes=[];
 //generated outout json
@@ -74,7 +79,7 @@ var time_ids_array=[]
 //we will try to read,preprocess and convert the data into a usable
 //and more understandable format
 
-//4
+// 4
 exports.parse_tripTimes= function parse_tripTimes() {
   console.log("-------------------------------------------------------")
   console.log("parsing trip times for preprocessing @ app.js ,line 70")
@@ -110,9 +115,7 @@ ids=[]
     createReqTimes(starttimes[j],stoptimes[j],steps[j],timesfroneid) 
     
   }
-  //Push all request times for a particular id and the id as object into totalreqtimes array
-  //this will be stored and used later
-  totalreqtimes.push({"id":ids+"",reqtimes:timesfroneid})
+    totalreqtimes.push({"id":ids+"",reqtimes:timesfroneid})
   trip_time_series.push({})
 
 });
@@ -122,7 +125,7 @@ ids=[]
 // parse_tripTimes();
 //###############################################################
 
-//get a unique set of 
+
 exports.get_runTime=function get_runTime(params) {
   console.log("------------------------------------------------------------------")
   console.log("Getting run time from trip times after parsing @ app.js ,line 116")
@@ -224,7 +227,6 @@ var year = today.getUTCFullYear();
     var destinations=`${obj.origin_latitude}%2c${obj.origin_longitude}`;
     var origins=`${obj.destination_latitude}%2c${obj.destination_longitude}`;
     var baseUrl="https://maps.googleapis.com/maps/api/distancematrix/json";
-     //var thisRequestTemp=`${baseUrl}?destinations=${destinations}&origins=${origins}&mode=${mode}&traffic_mode=${traffic_mode}&departure_time=${timemil}&key=${key}`;
     var thisRequest=`${baseUrl}?destinations=${destinations}&origins=${origins}&mode=${mode}&traffic_mode=${traffic_mode}&departure_time=today&key=${key}`;
 
     return thisRequest;
@@ -242,7 +244,6 @@ var today = new Date();
 var month = today.getUTCMonth() ; //months from 1-12
 var day = today.getUTCDate();
 var year = today.getUTCFullYear();
-//console.log("Time and ids "+time_ids_array )
 for (const thisrequest in time_ids_array) {
   var timeAndIds=time_ids_array[thisrequest]
   const hour=parseInt( timeAndIds.time*1/60);
@@ -251,10 +252,14 @@ for (const thisrequest in time_ids_array) {
   const departure = new Date(year, month, day, hour, min, 00, 00);
 
  var outputobjectforid={}
+
  //set the time to empty string to be set later
+
 var time=`${departure}`;
+
 //get time for request strings
 outputobjectforid["time"]=time
+
 //array of all ids and request strings
 var strings=[]
 var ids=[]
@@ -285,9 +290,9 @@ return request_data24hr;
 }
 
 
-//console.log(fullyProcessedData)
 
 exports.readRequestFile=async function readFiles(parse_tripTimes,sort_ttseries,createDayRequests) {
+
  //Try reading the temp file to create main request data for the day 
 fs.readFile("./output/request_data24hrTemp.json")
 .then((data) => {
@@ -309,11 +314,10 @@ fs.readFile("./output/request_data24hrTemp.json")
       const nextDate=new Date(year,month,nextday,hour,minutes);
       var timeeMilliseconds=nextDate.getTime();
       var newStrings=[];
-      //newStrings=getdata[obj].strings;
+      
       getdata[obj].strings.forEach(element => {
         newStrings.push(element.replace("today",`${timeeMilliseconds}`))
       });
-       //console.log(newStrings)
        
       getdata[obj].time=`${nextDate}`
       getdata[obj].strings=newStrings    
@@ -323,7 +327,7 @@ fs.readFile("./output/request_data24hrTemp.json")
       .then(()=>{
         fs.writeFile("./output/request_data24hr.json",JSON.stringify(getdata,null,2))
         .then((data) => {
-          console.log("----------------------------------------------")
+          console.log("---------------------------------------------")
           console.log("file  succesfully updated @ app.js ,line 308")
           console.log("Day's requests file updated")
          console.log("----------------------------------------------")
@@ -338,17 +342,19 @@ fs.readFile("./output/request_data24hrTemp.json")
 })
 //#####
 //If this file in question doesnt exist 
+
 .catch((error) =>
 {
  console.log("----------------------------------------------")
- console.log("File not ready for reading @ app.js, line 278")
+ console.log("File not ready for reading @ app.js, line 278 ")
  console.log("Creating it...")
  console.log("----------------------------------------------")
 
-    //
+
    parse_tripTimes();
    sort_ttseries();
   //* Replace departure_time *//
+
   request_data24hr= createDayRequests()
   for (const obj in request_data24hr) {
     var recentDate=new Date(request_data24hr[obj].time);
@@ -363,18 +369,17 @@ fs.readFile("./output/request_data24hrTemp.json")
 
     var timeeMilliseconds=nextDate.getTime();
     var newStrings=[];
-    //newStrings=getdata[obj].strings;
     request_data24hr[obj].strings.forEach(element => {
       newStrings.push(element.replace("today",`${timeeMilliseconds}`))
     });
-     //console.log(newStrings)
      request_data24hr[obj].time=`${nextDate.toUTCString()}`
 
      request_data24hr[obj].strings=newStrings    
 }
   
-  //* Template file *//
+  //* Template request variable *//
   request_data24hrTemp= createDayRequests()
+
   console.log("Creating 24hr requests  file @ app.js,line 356")
   fs.writeFile("./output/request_data24hr.json",JSON.stringify(request_data24hr,null,2))
 .then((data) => {
@@ -396,7 +401,8 @@ console.log("Couldnt create temporrary/template requests data file @ app.js , li
 
 }
 
-  );}
+  );
+}
 
 
 

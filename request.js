@@ -10,6 +10,7 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
   //set current database to empty string
   var currentDatabase=currentDatabase;
     try {
+
       //Try making a request to distance matrix api using axios
       const response = await axios.get(requestString);
       console.log(response.data)
@@ -26,9 +27,7 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
         console.log( response.data.rows[row]["elements"][0].duration)
         console.log( response.data.rows[row]["elements"][0].duration_in_traffic)
     } 
-     // fs.readFile("./output/output.json")
-            //   .then((data) => {
-            //    currentDatabase=JSON.parse(data);
+    
 
                 currentDatabase.push({"trip_id":requestId,
                 "destinations":destinations,
@@ -50,37 +49,7 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
                           
                 });
           
-              //})
-          //If ouput json file doesnt exist
-          //Catch error and create anew
-          // .catch ((error) =>{
-
-          //   console.log("Now creating output json database")
-
-          //   currentDatabase.push({"trip_id":requestId,
-          //   "destinations":destinations,
-          //   "origins":origins,
-          //   "departure_date":requestTime,"distance_km":distance_km.text,"duration_trafic_m":duration_traffic_m.text});
-
-          //   //write output json file
-          //   fs.writeFile("./output/output.json",JSON.stringify(currentDatabase,null,2))
-          //   .then((data) => {
-            
-          //   storeExcelDb(currentDatabase);
-
-          //   })
-          //   //catch error if failed
-          // .catch((error) =>
-
-          //  {
-          //   console.log("Couldnt store output @ request.js")
-
-            
-                    
-          // });
-
-          //});
-
+          
     //Catch errors if requests couldnt be made 
     } catch (error) {
       if (error.response) {
@@ -90,7 +59,6 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
         console.log("Request error.......")
         console.log("Request for | "+requestString)
         console.log("Has failed @ request.js line 53")
-       // console.log(error)
       }
       else
       console.log("Error occured making request")

@@ -5,9 +5,11 @@ const zip = new JSZip();
 exports.createZip= function zipFolder( downloadZip) {
     
  fs.readdir("./archives",(err,files)=>{
- //if error reading folder
+
+ //if error reading directory
  if(err){
  //creae this directory
+
  console.log("archives folder missing.Create new one")
 
  fs.mkdir("./archives",(err,path)=>{
@@ -44,6 +46,7 @@ zip
 .generateNodeStream ({type:'nodebuffer',streamFiles:true})
 .pipe(fs.createWriteStream(filename))
 .on('finish', function () {
+    
     // JSZip generates a readable stream with a "end" event,
     // but is piped here in a writable stream which emits a "finish" event.
     console.log("zip file created.");

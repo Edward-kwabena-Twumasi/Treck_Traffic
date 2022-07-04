@@ -1,10 +1,8 @@
-//const backup=require('./backuptofolder')
+//Handles filesystem actions related to creating and recreating output folder and its contents
 const fs =require("fs")
 exports.createOutputDir=function createDir(fs,path,dirName,workBook,myxlsx,prepareRequests) {
   var copyFile = (file, dir2)=>{
-    //include the fs, path modules
-   
-  
+    
     var f = path.basename(file);
     var source = fs.createReadStream(file);
     var dest = fs.createWriteStream(path.resolve(dir2, f));

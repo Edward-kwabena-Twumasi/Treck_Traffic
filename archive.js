@@ -1,3 +1,5 @@
+//Archive file has funtions created to handle file archiving
+//Based on a defined creiteria
 const fs=require("fs")
 const path=require('path')
 const myxlsx=require("xlsx");
@@ -6,10 +8,12 @@ exports.archiver=
 function archive(filename,foldername,filename1,foldername1) { 
 fs.stat(filename1, (err, stats) => {
   //if there is an error
+
   if (err) {
     console.log("No output file to archive")
   }
 //if there was no error
+
   else
    {
   var workbook=myxlsx.readFile(filename1,{});
@@ -21,9 +25,8 @@ if(!sheet2 || !sheet2["!ref"])
 else{
     range = myxlsx.utils.decode_range(sheet2["!ref"]);
     }  
-  //console.log(stats.size/1024+"  kb");
   var newdata=[]
-  if (stats.size/1024>5120 || range.e.r>500,000) {
+  if (stats.size/1024>5120 || range.e.r>500) {
 
     //read json output file
     fs.readFile(filename, (err, data) => {
@@ -32,17 +35,15 @@ else{
       };
      
       newdata=JSON.parse(data)
-      //console.log(newdata);
     
     const archHeader="archive";
-    //"./testfolder"
 fs.readdir(foldername, (err, files) => {
-  //console.log(files);
   
 var fileName=archHeader+(files.length/2).toString()
 if (files.includes(fileName)) {
   fileName=archHeader+(files.length+1).toString()
 }
+
 const filePath=path.join(foldername, fileName)
 const filePath1=path.join(foldername1, fileName+".xlsx")
   console.log(fileName);
@@ -54,6 +55,7 @@ const filePath1=path.join(foldername1, fileName+".xlsx")
     console.log('The file has been saved!');
   });
   //Excel archive file
+
   var new_book=myxlsx.utils.book_new();
   var output_sheet=myxlsx.utils.json_to_sheet(JSON.parse(data),{}); 
   myxlsx.utils.book_append_sheet(new_book,output_sheet,fileName)
@@ -74,21 +76,3 @@ const filePath1=path.join(foldername1, fileName+".xlsx")
 
 }
 
-// archive("./output.json","./archives","./output/output_data.xlsx","./archives")
-// const archHeader="archive";
-// fs.readdir("./testfolder", (err, files) => {
-//   console.log(files);
-  
-// var fileName=archHeader+files.length.toString()
-// if (files.includes(fileName)) {
-//   fileName=archHeader+(files.length+1).toString()
-// }
-// const filePath=path.join("./testfolder", fileName)
-//   console.log(fileName);
-//   console.log(filePath);
-
-//   fs.writeFile(filePath, filePath, (err) => {
-//     if (err) throw err;
-//     console.log('The file has been saved!');
-//   });
-// })

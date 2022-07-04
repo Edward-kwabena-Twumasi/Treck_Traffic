@@ -1,3 +1,4 @@
+//Funtions as telling which files just got recently added to a folder
 const fs = require("fs");
 const path = require("path");
 
@@ -16,4 +17,3 @@ const orderReccentFiles = (dir) => {
 };
 }
 
-//console.log(getMostRecentFile('./archivehistory').file);

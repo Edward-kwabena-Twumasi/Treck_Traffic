@@ -1,4 +1,5 @@
 
+ //Contains funtions for creating backup of files
  var fs = require('fs');
  var path = require('path');
 //copy the $file to $dir2
@@ -21,7 +22,6 @@ var copyFile = (file, dir2)=>{
       
       console.log(`${file} not yet available`); });
   } catch (error) {
-    //console.log(err)
   }
 
   };
@@ -53,13 +53,5 @@ var copyFile = (file, dir2)=>{
           console.log(`Done copying ${files.length} files to backup folder`)
       }
   })
-  //copy files from archivehistory folder into backup folder
-  // try {
-  //   fs.readFile("./output/output.json").then((data)=>{
-  //     copyFile("./output/output.json", './archivehistorybackup');
-
-  //   })
-  // } catch (error) {
-  //   console.log("No backup file yet")
-  // }
+ 
 }

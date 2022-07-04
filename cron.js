@@ -30,7 +30,7 @@ exports.makeReqWriteOutput=function name(params) {
     }
   
     for (const dait in dates) {
-      //console.log(`execute at ${dates[dait]}`);
+      
       var id=0;
       requestArray[dait]["strings"].forEach(request => {
       
@@ -39,9 +39,7 @@ exports.makeReqWriteOutput=function name(params) {
       });
       allrequests+=id;
       const job = schedule.scheduleJob(dates[dait], function(){
-        // console.log(`executed at ${dates[dait]}`);
-        // console.log("---")
-      
+        
  
            var id=0;
            requestArray[dait]["strings"].forEach(request => {
