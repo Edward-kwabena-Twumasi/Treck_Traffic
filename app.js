@@ -119,6 +119,7 @@ ids=[]
   trip_time_series.push({})
 
 });
+
 }
 
 //5

@@ -2,9 +2,6 @@
 //Takes functions exported from various modules or files
 //and combines them logically to enable program run smoothly
 'use strict'
-console.log("-----------------------------")
-console.log("Program execution has began")
-console.log("-----------------------------")
 
 const schedule = require('node-schedule');
 const express=require('express');
@@ -15,142 +12,98 @@ const myxlsx=require("xlsx");
 const dirName="output";
 const fs =require("fs");
 const archiveOutput =require("./archive");
-const OutputFolder=require('./filesys');
-const mainApp=require('./app');
+const manageFiles=require('./filesys');
+const preProcess=require('./app');
 const createZip=require('./zipper');
 const backup=require('./backuptofolder');
 var initJob;
 var cancelinitjob=false;
-var wb=myxlsx.readFile("input_data.xlsx",{});
-var mysheets=wb.SheetNames;
+var wb;
+
+try {
+   wb=myxlsx.readFile("input_data.xlsx",{});
+
+ var mysheets=wb.SheetNames;
+ if (mysheets.length<4) {
+  console.log("Expected to find 4 sheets('optional_inputs', 'od_pairs', 'calendar', 'trip_times')")
+  console.log(mysheets.length +" sheets were found")
+  return;
+
+} 
+  if (mysheets.includes("optional_inputs") && mysheets.includes("od_pairs") && mysheets.includes("calender") && mysheets.includes("trip_times")) {
+    console.log("Expected to find 4 sheets('optional_inputs', 'od_pairs', 'calendar', 'trip_times')")
+    return;
+  }
+
+
+var calenderSheet=wb.Sheets[mysheets[2]];
+var calender=myxlsx.utils.sheet_to_json(calenderSheet);
 var currentHours; 
 var currentMinutes;
-var archives=[]
 
-var ws=wb.Sheets[mysheets[2]];
-var calender=myxlsx.utils.sheet_to_json(ws);
+//var archives=[]
 
 //assign start date to start variable
 const start=calender[0].start_date.split(".");
 
 //assign stop date to stop variable
 const stop=calender[0].stop_date.split(".");
-
 //get day,month and year from start date and 
 //construct datetime called startTime
 var day=start[0]*1,month=start[1]*1,year=start[2]*1;
 const startTime = new Date(Date.UTC(year,month-1,day));
-console.log(`${startTime}`);
-
+console.log(`Calender start date : ${startTime}`);
 //get day,month and year from stop date and 
 //construct dateTime from it
 var sday=stop[0]*1,smonth=stop[1]*1,syear=stop[2]*1;
 const endTime = new Date(Date.UTC(syear,smonth-1,sday));
-console.log(endTime.toUTCString());
-
+console.log("Calender stop date : "+endTime.toUTCString());
 //Make backup of files
 backup.backupFiles()
 
 //Function to prepare and make requests ready 
 function prepareRequests() {
-  mainApp.parse_tripTimes
-mainApp.sort_ttseries
-mainApp.createDayRequests
-  mainApp.readRequestFile(mainApp.parse_tripTimes,mainApp.sort_ttseries,mainApp.createDayRequests)
+//   preProcess.parse_tripTimes
+// preProcess.sort_ttseries
+// preProcess.createDayRequests
+  preProcess.readRequestFile(preProcess.parse_tripTimes,preProcess.sort_ttseries,preProcess.createDayRequests)
 
 }
 
 //Funtion to calculate start and end runtimes
-function cal_runtime(start,end) {
+function cal_runtime(startHour,endHour) {
   var run_time=0
+      if (endHour-startHour==24) {
+       console.log("There should be at least an hour for program to prepare @ app_calender ,line 51")
+      } 
+      else {      
+      var remaining=startHour+24-endHour;
   
-      if (end-start==24) {
-          console.log("There should be at least an hour for program to prepare @ app_calender ,line 51")
-      } else {   
-      
-      var remaining=start+24-end;
-  
-      var avg=remaining/2
+      var averageHour=remaining/2
   
      
-  if ( (start-avg)>0) {
-      run_time=start-avg
-  } else {
-      run_time=end+avg
-  }
+    if ( (startHour-averageHour)>0) {
+      run_time=startHour-averageHour
+      } 
+    else 
+    {
+      run_time=endHour+averageHour
+     }
   
    
       console.log("Idle hours "+ remaining)
       console.log(".......")
-      console.log("Average idle time "+ avg)
+      console.log("Average idle time "+ averageHour)
       console.log(".......")
      
   }
       return run_time;
   }
-//Functions from app.js to run before calc_runtime
-// can execute successfully
-mainApp.parse_tripTimes()
-mainApp.get_runTime()
-var runTime= cal_runtime(mainApp.startTime,mainApp.endTime)
 
-//Check the run times against current time and do scheduling bases 
-//on outcome
-if(runTime>mainApp.endTime){
-  console.log("Pre run at "+ runTime+" hours.Create request inputs for the next day.")
-}
-else if (runTime<mainApp.startTime){
-   currentHours=new Date().getUTCHours(); 
-   currentMinutes=new Date().getUTCMinutes();
-  if(currentHours>runTime && currentHours< mainApp.endTime){
-    console.log(currentHours+"......")
-    console.log("Current time is past start time.So shedule requests anyway @ app_calender, line 90")
-   
-    console.log(currentHours)
-    console.log(currentMinutes)
-    console.log(new Date().toUTCString())
-     initJob=schedule.scheduleJob({ start: startTime, end: endTime, hour:(currentHours),minute:(currentMinutes+1)
-
-    }, function(){
-      const departure = new Date();
-
-      console.log("Checking valid days for execution")
-
-      if (checkValidDay(days[departure.getDay()])) {
-        console.log(`On ${days[departure.getDay()]} we will run the application`)
-      console.log('Scheduling done.Waiting for execution');
-      console.log(`${departure}`);
-      console.log(' Today is');
-      console.log(days[departure.getDay()]);
-    
-    OutputFolder.createOutputDir(fs,path,dirName,wb,myxlsx,prepareRequests)
-     
-    cancelinitjob=true;
-    //check valid days for execution
-    console.log("----------------------------------")
-
-    
-    } else {
-      console.log(`On ${days[departure.getDay()]}  the application rests according to calender !`)
-
-    }
-    console.log("----------------------------------")
-     
-    
-    });
-  }
-  console.log("Pre run time is at "+ runTime+" hours on each valid day")
-} 
-
-//shdeule archiving of output file to after the last request
-
-schedule.scheduleJob('00 '+mainApp.endTime+' * * *',function(){
-  console.log(new Date().toUTCString())
-  console.log("Cron job executed now")
-  console.log(new Date().toUTCString())
-  archiveOutput.archiver("./output/output.json","./archives","./output/output_data.xlsx","./archives")
-})
-
+//Calculate run time 
+preProcess.parse_tripTimes()
+preProcess.get_runTime()
+var runTime= cal_runtime(preProcess.startTime,preProcess.endTime)
 
 //Declare the days of the week in an array
 var days=["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]
@@ -159,31 +112,106 @@ function checkValidDay(day) {
   return calender[0][day]
 }
 
+//shdeule archiving of output file to after the last request
+
+schedule.scheduleJob('00 '+preProcess.endTime+' * * *',function(){
+  console.log("Creating archives at ")
+  console.log(new Date().toUTCString())
+  archiveOutput.archiver("./output/output.json","./archives","./output/output_data.xlsx","./archives")
+})
+
+
+//Check the run times against current time and do scheduling bases 
+//on outcome
+if(runTime>preProcess.endTime){
+  console.log("Pre run at "+ runTime+" hours.Create request inputs for the next day.")
+}
+
+else if (runTime<preProcess.startTime){
+
+   currentHours=new Date().getUTCHours(); 
+   currentMinutes=new Date().getUTCMinutes();
+  if(currentHours>runTime && currentHours< preProcess.endTime){
+    console.log(currentHours+"......")
+    console.log("Sheduling requests now @ app_calender, line 90")
+
+//First job .Will be executed immediately if program starts during hours inbetween start and end hours
+     initJob=schedule.scheduleJob({ start: startTime, end: endTime, hour:(currentHours),minute:(currentMinutes+1)
+
+    }, function(){
+
+      const departure = new Date();
+
+      if (checkValidDay(days[departure.getDay()])) {
+      console.log(`On ${days[departure.getDay()]} requests can be made per calender`)
+      console.log(' Today is');
+      console.log(days[departure.getDay()]);
+    
+    manageFiles.createOutputDir(fs,path,dirName,wb,myxlsx,prepareRequests)
+     
+    cancelinitjob=true;
+    console.log("----------------------------------")
+    
+    } else {
+      console.log(`On ${days[departure.getDay()]}  requests cant be made per calender !`)
+
+    }
+    console.log("----------------------------------")
+      
+    });
+  }
+  console.log("Pre run time is at "+ runTime+" hours on each  day")
+} 
+
+
+
+//Second job.Will start executing during 
+
 const job = schedule.scheduleJob({ start: startTime, end: endTime, hour:runTime,minute:0
 
 }, function(){
-
-  console.log('Scheduling done.Waiting for execution');
-  const departure = new Date();
-  console.log(`${departure}`);
-  console.log(' Today is');
-  console.log(days[departure.getDay()]);
-
-OutputFolder.createOutputDir(fs,path,dirName,wb,myxlsx,prepareRequests)
-
-if (cancelinitjob) {
-  initJob.cancel();
-}
-
-  for (const day in days) {
-    if (checkValidDay(days[day])) {
-      console.log(`On ${days[day]} we will run the application`)
-    } else {
-      console.log(`On ${days[day]}  the application will rest`)
+   if (cancelinitjob) {
+      initJob.cancel();
+      console.log("Cancelling temporary job")
     }
-  }
+      const departure = new Date();
+
+      if (checkValidDay(days[departure.getDay()])) {
+      console.log(`On ${days[departure.getDay()]} requests can be made per caldender`)
+      console.log(' Today is');
+      console.log(days[departure.getDay()]);
+    
+    manageFiles.createOutputDir(fs,path,dirName,wb,myxlsx,prepareRequests)
+     
+    console.log("----------------------------------")
+    
+    } else {
+      console.log(`On ${days[departure.getDay()]}  requests cant be made per calender !`)
+
+    }
+    console.log("----------------------------------")
+
+//   const departure = new Date();
+//   console.log(' Today is');
+//   console.log(days[departure.getDay()]);
+
+// manageFiles.createOutputDir(fs,path,dirName,wb,myxlsx,prepareRequests)
+
+// if (cancelinitjob) {
+//   initJob.cancel();
+//   console.log("Cancelling temporary job")
+// }
+
+//   for (const day in days) {
+//     if (checkValidDay(days[day])) {
+//       console.log(`On ${days[day]} we will run the application`)
+//     } else {
+//       console.log(`On ${days[day]}  the application will rest`)
+//     }
+//   }
 
 });
+
 
 //During process termination
 
@@ -256,14 +284,13 @@ if (err) {
 
 server.get('/archives',(req,res)=>{
 
-  createZip.createZip(()=>downloadFile(res))
-  
+  createZip.createZip(()=> downloadFile(res))
   
 })
 
 //Function to downaload file after zipping it
 function downloadFile(res) {
-
+console.log("Heloo");
   //get most recent file
   const getMostRecentFile = (dir) => {
     const files = orderReccentFiles(dir);
@@ -281,7 +308,8 @@ function downloadFile(res) {
 
   if(
     getMostRecentFile("./archivehistory")==undefined)
-{ res.render("404page", { title: "Not found" })
+{
+   res.render("404page", { title: "Not found" })
 console.log("No files archived yet");
 }
 else
@@ -289,6 +317,7 @@ else
   let recent=getMostRecentFile("./archivehistory");
   console.log(recent);
   var zipfile="./archivehistory/"+recent.file;
+  console.log(zipfile +" is the file")
   res.download(zipfile,(err) =>
   { 
 if (err) {
@@ -297,13 +326,14 @@ if (err) {
  
 
 }
-   });}
+   });
+  }
 }
 
 
 //Set static files for express serve them
 server.use(express.static(path.join(__dirname, "public")));
- 
+server.use(express.static(path.join(__dirname, "archivehistory")));
 server.use(express.static(path.join(__dirname, "output")));
 server.use(express.static(path.join(__dirname, "archives")));
 
@@ -311,3 +341,7 @@ server.use(express.static(path.join(__dirname, "archives")));
 server.listen(port,()=>{
   console.log("server listening on "+port +` at ${(new Date().toUTCString())}`)
 })
+} catch (error) {
+  console.log("Please provide the correct input file.Expected to find input_data.xlsx")
+
+}

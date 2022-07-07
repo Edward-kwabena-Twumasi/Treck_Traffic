@@ -1,5 +1,6 @@
 //Handles filesystem actions related to creating and recreating output folder and its contents
 const fs =require("fs")
+
 exports.createOutputDir=function createDir(fs,path,dirName,workBook,myxlsx,prepareRequests) {
   var copyFile = (file, dir2)=>{
     

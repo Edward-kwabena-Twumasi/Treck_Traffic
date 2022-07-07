@@ -7,7 +7,6 @@ doctype html
 html
   head
     meta(charset="utf-8")
-    link(rel="shortcut icon", href="/favicon.ico")
     meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
     meta(name="theme-color", content="#000000")
     title #{title} | Treck  Traffic
@@ -25,6 +24,7 @@ html
      
      const arch=document.getElementById("archive") 
      arch.addEventListener('click',()=>{
+       window.loaction.href="/archives"
      },false) 
 
      const exelDb=document.getElementById("excelDb") 
@@ -39,4 +39,4 @@ html
               window.loaction.href="/backup"
 
       },false)   
-            
+         

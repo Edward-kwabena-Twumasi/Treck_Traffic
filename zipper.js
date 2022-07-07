@@ -2,7 +2,7 @@ const JSZip = require("jszip");
 const fs=require("fs")
 const zip = new JSZip();
 
-exports.createZip= function zipFolder( downloadZip) {
+exports.createZip=async function zipFolder(downloadZip) {
     
  fs.readdir("./archives",(err,files)=>{
 
@@ -52,7 +52,6 @@ zip
     downloadZip()
    
     
-
 });
 
 }) 
@@ -62,6 +61,5 @@ zip
  }
 //forearch ends here
 })
-return;
 
 }
