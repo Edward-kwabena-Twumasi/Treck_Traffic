@@ -1,21 +1,16 @@
-//Pug is a view engine for creating views using html-like syntax
-//It works by indentation and not nesting. Any reformatting may destroy the indentation
-//Which will affect the syntax and its output
+
 extends layout
 
 block layout-content
+  img(src="logo.png")
   div.View
-    h1.Banner Treck Traffic
     div.Message
       div.Title
-        h3 Treck traffic is an automatic google traffic data analyser and archiver
-        h1 Get to Know about the traffic on our roads
-    - const dirname=__dirname    
+        h1 Treck traffic is an automatic google traffic data analyser and archiver
+        p Get to Know about the traffic on our roads
+       
+     
     div.NavButtons
-      a#excelDb(href="./output"  )
-          div.NavButton  Output Database
-      a#jsonDb(href="./backup")
-          div.NavButton Database Backup   
-      ul.archives 
-        li 
-           a#archive(href="./archives") Download Archive
+      a#excelDb(href="./output"  )  Output Database
+      a#jsonDb(href="./backup") Database Backup   
+      a#archive(href="./archives") Download Archive

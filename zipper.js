@@ -8,13 +8,13 @@ exports.createZip= function zipFolder( downloadZip) {
 
  //if error reading directory
  if(err){
- //creae this directory
+ //create this directory
 
- console.log("archives folder missing.Create new one")
+ console.log("Creating new archives folder")
 
  fs.mkdir("./archives",(err,path)=>{
  if(err){
- console.log("Couldnt create archives folder")
+ console.log("Error creating folder")
  
  }
  else
@@ -32,14 +32,13 @@ exports.createZip= function zipFolder( downloadZip) {
  fs.readFile("./archives/"+file, (err, data) => {
         if (err) throw err;
         zip.folder("archives").file(file,data)
-        console.log(data);
      
  if (file==files[files.length-1]) {
 
     fs.readdir("./archivehistory",(err,files)=>{
         filename="./archivehistory/"+"zip"+files.length+".zip";
 
-        console.log(files)
+       
     
  
 zip
@@ -50,13 +49,12 @@ zip
     // JSZip generates a readable stream with a "end" event,
     // but is piped here in a writable stream which emits a "finish" event.
     console.log("zip file created.");
+    downloadZip()
    
     
 
 });
-setTimeout(() => {
-    downloadZip
-}, 10000);
+
 }) 
 }  
 })
@@ -64,4 +62,6 @@ setTimeout(() => {
  }
 //forearch ends here
 })
+return;
+
 }

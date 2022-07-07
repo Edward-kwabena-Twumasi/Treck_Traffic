@@ -1,7 +1,7 @@
 //App.js file owns the functionalities of reading and preprocessing 
 //the input file the program is to run with and then creating 
 //a request file to be scheduled by the program
-
+'use strict'
 const myxlsx=require("xlsx");
 
 const fs = require('fs/promises')
@@ -93,7 +93,7 @@ starttimes=[]
 
 stoptimes=[]
 
-steps=[]
+var steps=[]
 
 ids=[]
    
@@ -222,7 +222,7 @@ var year = today.getUTCFullYear();
 
   const hour=parseInt( obj1.time*1/60);
   const min=obj1.time*1%60;
-    const departure = new Date(year, month, day, hour, min, 00, 00);
+    const departure = new Date(year, month, day, hour, min);
     const timemil=departure.getTime()
     var destinations=`${obj.origin_latitude}%2c${obj.origin_longitude}`;
     var origins=`${obj.destination_latitude}%2c${obj.destination_longitude}`;
@@ -249,7 +249,7 @@ for (const thisrequest in time_ids_array) {
   const hour=parseInt( timeAndIds.time*1/60);
   
   const min=parseInt(timeAndIds.time*1%60);
-  const departure = new Date(year, month, day, hour, min, 00, 00);
+  const departure = new Date(year, month, day, hour, min);
 
  var outputobjectforid={}
 
@@ -355,7 +355,7 @@ fs.readFile("./output/request_data24hrTemp.json")
    sort_ttseries();
   //* Replace departure_time *//
 
-  request_data24hr= createDayRequests()
+  let request_data24hr= createDayRequests()
   for (const obj in request_data24hr) {
     var recentDate=new Date(request_data24hr[obj].time);
     var newDate=new Date();
@@ -378,7 +378,7 @@ fs.readFile("./output/request_data24hrTemp.json")
 }
   
   //* Template request variable *//
-  request_data24hrTemp= createDayRequests()
+  let request_data24hrTemp= createDayRequests()
 
   console.log("Creating 24hr requests  file @ app.js,line 356")
   fs.writeFile("./output/request_data24hr.json",JSON.stringify(request_data24hr,null,2))

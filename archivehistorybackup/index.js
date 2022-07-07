@@ -206,7 +206,6 @@ function shutdown(signal) {
   
 }
 
-var dynamicData={ title: "Home",message:"12" }
 //Occasional console loggin to tell server is alive
 
 setInterval(() => {
@@ -221,13 +220,12 @@ server.set("view engine", "pug");
 server.get('/',(req,res)=>{
   
   console.log("Home route loaded or refreshed")
-  res.render("index", dynamicData);
+  res.render("index", { title: "Home" });
 
 })
 
 //download json backup file
 server.get('/backup',(req,res)=>{
-  dynamicData.message="Get backup"
     res.download("./output/output.json",(err) =>
     { 
   if (err) {
@@ -279,11 +277,8 @@ function downloadFile(res) {
       .sort((a, b) => b.mtime.getTime() - a.mtime.getTime());
   };
 
-  if(
-    getMostRecentFile("./archivehistory")==undefined)
-{ res.render("404page", { title: "Not found" })
-console.log("No files archived yet");
-}
+  if(getMostRecentFile("./archivehistory")===undefined)
+ res.send("<h1>No archives available yet</h1>")
 else
  {
   let recent=getMostRecentFile("./archivehistory");
@@ -294,7 +289,8 @@ else
 if (err) {
   console.log(err +"...error" )
  console.log("Error occured")
- 
+ //res.send("<h1></h1>")
+
 
 }
    });}

@@ -3,5 +3,5 @@
 C:
 cd C:/jsdev/nodeproject
 git add .
-git commit -m "Automated google traffic data archiver code cleaned"
+git commit 
 git push -u origin main
