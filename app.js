@@ -24,8 +24,7 @@ var mysheets=input_work_book.SheetNames;
 
 var trip_times=input_work_book.Sheets[mysheets[3]];
 var od_pairs=input_work_book.Sheets[mysheets[1]];
-var err=input_work_book.Sheets[mysheets[5]];
-console.log(err)
+
 var trip_times=myxlsx.utils.sheet_to_json(trip_times);
 var odpairs=myxlsx.utils.sheet_to_json(od_pairs);
  
@@ -154,9 +153,7 @@ req_times24hr = [...new Set(req_times24hr)]
 req_times24hr.sort(function(a, b) {
     return a - b;
   });
-console.log("Start making requests at ... "+req_times24hr[0]/60+" | end Reuests at ... "+req_times24hr[req_times24hr.length-1]/60)
-var startTime=req_times24hr[0]/60
-var endTime=req_times24hr[req_times24hr.length-1]/60
+// console.log("Start making requests at ... "+req_times24hr[0]/60+" | end Reuests at ... "+req_times24hr[req_times24hr.length-1]/60)
 
 
 
@@ -336,8 +333,17 @@ fs.readFile("./output/request_data24hrTemp.json")
             requestsNdOutput.makeReqWriteOutput()
 
         }).catch((error) =>
-        console.log(error))
-      }).catch((eror)=>console.log(eror));
+        {
+          console.log("This error was thrown during request data file creation @ app.js 335")
+          console.log(error)
+        
+        }
+        
+        )
+      }).catch((eror)=>{
+        console.log("This error was thrown during template request data file deletion @ app.js 344")
+
+        console.log(eror)});
       //######
 
 })
@@ -383,11 +389,17 @@ fs.readFile("./output/request_data24hrTemp.json")
 
   console.log("Creating 24hr requests  file @ app.js,line 356")
   fs.writeFile("./output/request_data24hr.json",JSON.stringify(request_data24hr,null,2))
-.then((data) => {
-  console.log("File succesfully created @ app.js, line 357")
-  requestsNdOutput.makeReqWriteOutput()
-}).catch((error) =>
-console.log(error)
+  .then((data) => {
+    console.log("File succesfully created @ app.js, line 357")
+
+    requestsNdOutput.makeReqWriteOutput()
+
+  })
+.catch((error) =>
+{
+  console.log("This error was thrown during request data file creation @ app.js 400")
+
+  console.log(error)}
 )
 
 //**** */

@@ -23,9 +23,9 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
       
        distance_km=response.data.rows[row]["elements"][0].distance;
        duration_traffic_m=response.data.rows[row]["elements"][0].duration_in_traffic;
-        console.log( response.data.rows[row]["elements"][0].distance)
-        console.log( response.data.rows[row]["elements"][0].duration)
-        console.log( response.data.rows[row]["elements"][0].duration_in_traffic)
+        // console.log( response.data.rows[row]["elements"][0].distance)
+        // console.log( response.data.rows[row]["elements"][0].duration)
+        // console.log( response.data.rows[row]["elements"][0].duration_in_traffic)
     } 
     
 
@@ -39,6 +39,8 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
                   .then((data) => {
                   
                   storeExcelDb(currentDatabase);
+                  exports.returnDatabase=currentDatabase;
+                  
 
                   })
                   //catch error if wrire failed
@@ -61,9 +63,10 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
         console.log("Has failed @ request.js line 53")
       }
       else
-      console.log("Error occured making request")
+      console.log(error)
     }
   }
+
 
   // Store data in excel database
 function storeExcelDb(outputJson) {
@@ -73,7 +76,7 @@ function storeExcelDb(outputJson) {
     .then((data)=>{
         var output_book= myxlsx.readFile("./output/output_data.xlsx");
         if (output_book.SheetNames.indexOf("request_output")>=0) {
-          console.log("Update output database")
+         // console.log("Update output database")
           output_book.Sheets["request_output"]=output_sheet;
             fs.rm("./output/output_data.xlsx")
             .then(()=>{
@@ -103,3 +106,8 @@ function storeExcelDb(outputJson) {
   })
 
 }
+
+// function returnDatabase(currentDatabase) {
+//   return currentDatabase;
+  
+// }

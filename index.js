@@ -30,7 +30,7 @@ try {
   return;
 
 } 
-  if (mysheets.includes("optional_inputs") && mysheets.includes("od_pairs") && mysheets.includes("calender") && mysheets.includes("trip_times")) {
+   if (!mysheets.includes("optional_inputs") && !mysheets.includes("od_pairs") && !mysheets.includes("calender") && !mysheets.includes("trip_times")) {
     console.log("Expected to find 4 sheets('optional_inputs', 'od_pairs', 'calendar', 'trip_times')")
     return;
   }
@@ -140,12 +140,12 @@ else if (runTime<preProcess.startTime){
 
     }, function(){
 
-      const departure = new Date();
+      const currentDateTime = new Date();
 
-      if (checkValidDay(days[departure.getDay()])) {
-      console.log(`On ${days[departure.getDay()]} requests can be made per calender`)
+      if (checkValidDay(days[currentDateTime.getDay()]) && currentDateTime <= endTime && currentDateTime >=startTime) {
+      console.log(`On ${days[currentDateTime.getDay()]} requests can be made per calender`)
       console.log(' Today is');
-      console.log(days[departure.getDay()]);
+      console.log(days[currentDateTime.getDay()]);
     
     manageFiles.createOutputDir(fs,path,dirName,wb,myxlsx,prepareRequests)
      
@@ -153,7 +153,7 @@ else if (runTime<preProcess.startTime){
     console.log("----------------------------------")
     
     } else {
-      console.log(`On ${days[departure.getDay()]}  requests cant be made per calender !`)
+      console.log(`On ${days[currentDateTime.getDay()]}  requests cant be made per calender !`)
 
     }
     console.log("----------------------------------")
@@ -174,26 +174,26 @@ const job = schedule.scheduleJob({ start: startTime, end: endTime, hour:runTime,
       initJob.cancel();
       console.log("Cancelling temporary job")
     }
-      const departure = new Date();
+      const currentDateTime = new Date();
 
-      if (checkValidDay(days[departure.getDay()])) {
-      console.log(`On ${days[departure.getDay()]} requests can be made per caldender`)
+      if (checkValidDay(days[currentDateTime.getDay()]) && currentDateTime <= endTime && currentDateTime >=startTime) {
+      console.log(`On ${days[currentDateTime.getDay()]} requests can be made per caldender`)
       console.log(' Today is');
-      console.log(days[departure.getDay()]);
+      console.log(days[currentDateTime.getDay()]);
     
     manageFiles.createOutputDir(fs,path,dirName,wb,myxlsx,prepareRequests)
      
     console.log("----------------------------------")
     
     } else {
-      console.log(`On ${days[departure.getDay()]}  requests cant be made per calender !`)
+      console.log(`On ${days[currentDateTime.getDay()]}  requests cant be made per calender !`)
 
     }
     console.log("----------------------------------")
 
-//   const departure = new Date();
+//   const currentDateTime = new Date();
 //   console.log(' Today is');
-//   console.log(days[departure.getDay()]);
+//   console.log(days[currentDateTime.getDay()]);
 
 // manageFiles.createOutputDir(fs,path,dirName,wb,myxlsx,prepareRequests)
 

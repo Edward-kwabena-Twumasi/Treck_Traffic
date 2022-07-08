@@ -3,5 +3,5 @@
 C:
 cd C:/jsdev/nodeproject
 git add .
-git commit 
+git commit -m "Code refactoring of project files"
 git push -u origin main
