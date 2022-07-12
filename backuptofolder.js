@@ -8,6 +8,9 @@ exports.backupFiles= function backupFiles(params) {
 
 var copyFile = (file, dir2)=>{
     //include the fs, path modules
+    if (fs.existsSync(dir2)) {
+      
+    
    
   try {
   
@@ -22,7 +25,24 @@ var copyFile = (file, dir2)=>{
       
       console.log(`${file} not yet available`); });
   } catch (error) {
+    console.log("Error during Backup-----"+error)
   }
+}
+
+else{
+console.log("Backup folder not found.Creating it now...")
+
+fs.mkdir("archivehistorybackup",(err)=>{
+if (err) {
+  console.log("Backup operation failed.Try restarting app")
+  console.log(err);
+  return;
+} else {
+  copyFile(file, dir2);
+}
+
+})
+}
 
   };
   
@@ -45,10 +65,12 @@ var copyFile = (file, dir2)=>{
              var filename="./archivehistory/"+file;
               copyFile(filename, './archivehistorybackup');
           })
-         
+         //Copy output files from output folder into archivehistorybackup
+          
           copyFile("./output/output.json", './archivehistorybackup');
           copyFile("./output/output_data.xlsx", './archivehistorybackup');
 
+          
 
           console.log(`Done copying ${files.length} files to backup folder`)
       }

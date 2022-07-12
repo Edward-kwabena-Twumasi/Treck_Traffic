@@ -1,28 +1,44 @@
+
 const schedule = require('node-schedule');
 const fs = require('fs/promises');
 const getTraffic=require('./request')
 var allrequests=0;
 var currentDatabase=[];
-exports.makeReqWriteOutput=function sheduleNmakeReqs(params) {
-  // fs.readFile("./output/output.json")
-  // .then((data) => {
-  // currentDatabase=JSON.parse(data);
+exports.makeReqWriteOutput=
+function Cron(params) {
+  
+  fs.readFile("./output/output.json")
+  .then((data) => {
+   
 
-  // console.log("Old database file read @ cron.js line 9 to 11")
-  // console.log("Last item")
-  // console.log(currentDatabase[currentDatabase.length-1])
-  // })
-  // .catch((error) =>
-  // console.log("Making new request json output file"));
- getRecentDatabase()
+  currentDatabase=JSON.parse(data);
+
+  console.log("Old database file read @ cron.js line 9 to 11")
+  console.log("......")
+  console.log("Last item")
+  console.log(currentDatabase[currentDatabase.length-1]==undefined?"No previous output":currentDatabase[currentDatabase.length-1])
+  
+  })
+  .catch((error) =>
+  
+  {
+    console.log("......")
+
+    console.log(error);
+    console.log("Output json backup not found")
+    console.log("......")
+
+  }
+  
+  );
 
   var dates=[];
   //Read request file and schedule requests
 
   fs.readFile("./output/request_data24hr.json")
   .then((data) => {
+  
     const requestArray=JSON.parse(data);
-    console.log(requestArray.length)
   
     for (const request in requestArray) {
    dates.push(new Date(requestArray[request].time));
@@ -53,8 +69,9 @@ exports.makeReqWriteOutput=function sheduleNmakeReqs(params) {
 
           id+=1;
           console.log(id)
-          currentDatabase=getTraffic.returnDatabase
-        });
+        currentDatabase=getTraffic.Current
+        console.log(currentDatabase[currentDatabase.length-1]==undefined?"No previous output":currentDatabase[currentDatabase.length-1])
+      });
       
     
       });
@@ -62,33 +79,8 @@ exports.makeReqWriteOutput=function sheduleNmakeReqs(params) {
     }
     console.log(`Scheduled  ${allrequests} requests  @ cron.js, line 50`);
   
-   })
-}
+  })}
                         
   
-//sheduleNmakeReqs()
-
-
-                        
-  
-  function getRecentDatabase(params) {
-
-    fs.readFile("./output/output.json")
-    .then((data) => {
-    currentDatabase=JSON.parse(data);
-  
-    console.log("Current database file read @ cron.js line 9 to 11")
-    console.log("Last item")
-    console.log(currentDatabase[currentDatabase.length-1])
-    console.log(currentDatabase[currentDatabase.length-1])
-    return currentDatabase;
-    })
-    .catch((error) =>
-    {
-      console.log(error)
-      console.log("Error reading request file");
-      return [];
-    });
-    
-  }
+//Cron()
 
