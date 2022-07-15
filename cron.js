@@ -70,7 +70,8 @@ function Cron(params) {
           id+=1;
           console.log(id)
         currentDatabase=getTraffic.Current
-        console.log(currentDatabase[currentDatabase.length-1]==undefined?"No previous output":currentDatabase[currentDatabase.length-1])
+        console.log(currentDatabase)
+        //console.log(currentDatabase[currentDatabase.length-1]==undefined?"No previous output":currentDatabase[currentDatabase.length-1])
       });
       
     

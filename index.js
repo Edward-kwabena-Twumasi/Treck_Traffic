@@ -142,7 +142,7 @@ else if (runTime<preProcess.startTime){
 
       const currentDateTime = new Date();
 
-      if (checkValidDay(days[currentDateTime.getDay()]) && startTime>=currentDateTime && currentDateTime<=endTime) {
+      if (checkValidDay(days[currentDateTime.getDay()]) && currentDateTime>=startTime && currentDateTime<=endTime) {
       console.log(`On ${days[currentDateTime.getDay()]} requests can be made per calender`)
       console.log(' Today is');
       console.log(days[currentDateTime.getDay()]);
@@ -177,7 +177,7 @@ const job = schedule.scheduleJob({ start: startTime, end: endTime, hour:runTime,
     }
       const currentDateTime = new Date();
 
-      if (checkValidDay(days[currentDateTime.getDay()]) && currentDateTime <= endTime && currentDateTime >=startTime) {
+      if (checkValidDay(days[currentDateTime.getDay()]) && currentDateTime>=startTime && currentDateTime<=endTime) {
       console.log(`On ${days[currentDateTime.getDay()]} requests can be made per caldender`)
       console.log(' Today is');
       console.log(days[currentDateTime.getDay()]);

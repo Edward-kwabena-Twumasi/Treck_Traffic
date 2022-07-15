@@ -40,7 +40,9 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
                   .then((data) => {
                   
                   storeExcelDb(currentDatabase);
-                  exports.Current=currentDatabase
+                  console.log("Current database")
+                  console.log(currentDatabase)
+                 // exports.Current=currentDatabase
 
                   })
                   //catch error if wrire failed
