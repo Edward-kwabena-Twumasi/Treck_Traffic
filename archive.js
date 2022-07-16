@@ -26,7 +26,7 @@ else{
     range = myxlsx.utils.decode_range(sheet2["!ref"]);
     }  
   var newdata=[]
-  if (stats.size/1024>5120 || range.e.r>500) {
+  if (stats.size/1024>2048 || range.e.r>1500) {
 
     //read json output file
     fs.readFile(filename, (err, data) => {
@@ -52,7 +52,7 @@ const filePath1=path.join(foldername1, fileName+".xlsx")
 
   fs.writeFile(filePath,JSON.stringify(JSON.parse(data)), (err) => {
     if (err) throw err;
-    console.log('The file has been saved!');
+    console.log('Current output has been archives on '+(new Date().toUTCString()));
   });
   //Excel archive file
 
