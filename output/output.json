@@ -2422,5 +2422,221 @@
     "departure_date": "Sat, 16 Jul 2022 18:45:00 GMT",
     "distance_km": "6.2 km",
     "duration_trafic_m": "9 mins"
+  },
+  {
+    "trip_id": "10012",
+    "destinations": "N6, Kumasi, Ghana",
+    "origins": "Anloga Junction, MCQ3+6JG, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 19:30:00 GMT",
+    "distance_km": "6.2 km",
+    "duration_trafic_m": "9 mins"
+  },
+  {
+    "trip_id": "10010",
+    "destinations": "Unnamed Road, Kumasi, Ghana",
+    "origins": "MCP7+G8J, JK Acheampong Ave, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 19:30:00 GMT",
+    "distance_km": "6.5 km",
+    "duration_trafic_m": "8 mins"
+  },
+  {
+    "trip_id": "10005",
+    "destinations": "Bomso top high opp luv fm Kumasi-tech junction, Kumasi, Ghana",
+    "origins": "302 Kumasi - Ejisu Rd, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 19:30:00 GMT",
+    "distance_km": "2.2 km",
+    "duration_trafic_m": "4 mins"
+  },
+  {
+    "trip_id": "10001",
+    "destinations": "MCPG+GCX KNUST University Hospital, N6, Kumasi, Ghana",
+    "origins": "PF3C+9CV, Afia-kobi Street, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 19:30:00 GMT",
+    "distance_km": "7.1 km",
+    "duration_trafic_m": "12 mins"
+  },
+  {
+    "trip_id": "10011",
+    "destinations": "B56 Bomso Cres, Kumasi, Ghana",
+    "origins": "Unnamed Road, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 19:30:00 GMT",
+    "distance_km": "4.6 km",
+    "duration_trafic_m": "8 mins"
+  },
+  {
+    "trip_id": "10008",
+    "destinations": "Unnamed Road, Kumasi, Ghana",
+    "origins": "Bomso top high opp luv fm Kumasi-tech junction, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 19:30:00 GMT",
+    "distance_km": "6.4 km",
+    "duration_trafic_m": "10 mins"
+  },
+  {
+    "trip_id": "10013",
+    "destinations": "N6, Kumasi, Ghana",
+    "origins": "Anloga Junction, MCQ3+6JG, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 19:30:00 GMT",
+    "distance_km": "6.2 km",
+    "duration_trafic_m": "9 mins"
+  },
+  {
+    "trip_id": "10006",
+    "destinations": "Bomso top high opp luv fm Kumasi-tech junction, Kumasi, Ghana",
+    "origins": "N6, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 19:30:00 GMT",
+    "distance_km": "2.7 km",
+    "duration_trafic_m": "5 mins"
+  },
+  {
+    "trip_id": "10003",
+    "destinations": "MCPG+GCX KNUST University Hospital, N6, Kumasi, Ghana",
+    "origins": "Unnamed Road, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 19:30:00 GMT",
+    "distance_km": "4.5 km",
+    "duration_trafic_m": "7 mins"
+  },
+  {
+    "trip_id": "10005",
+    "destinations": "Bomso top high opp luv fm Kumasi-tech junction, Kumasi, Ghana",
+    "origins": "302 Kumasi - Ejisu Rd, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:00:00 GMT",
+    "distance_km": "2.2 km",
+    "duration_trafic_m": "4 mins"
+  },
+  {
+    "trip_id": "10003",
+    "destinations": "MCPG+GCX KNUST University Hospital, N6, Kumasi, Ghana",
+    "origins": "Unnamed Road, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:00:00 GMT",
+    "distance_km": "4.5 km",
+    "duration_trafic_m": "7 mins"
+  },
+  {
+    "trip_id": "10012",
+    "destinations": "N6, Kumasi, Ghana",
+    "origins": "Anloga Junction, MCQ3+6JG, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:00:00 GMT",
+    "distance_km": "6.2 km",
+    "duration_trafic_m": "9 mins"
+  },
+  {
+    "trip_id": "10011",
+    "destinations": "B56 Bomso Cres, Kumasi, Ghana",
+    "origins": "Unnamed Road, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:00:00 GMT",
+    "distance_km": "4.6 km",
+    "duration_trafic_m": "8 mins"
+  },
+  {
+    "trip_id": "10006",
+    "destinations": "Bomso top high opp luv fm Kumasi-tech junction, Kumasi, Ghana",
+    "origins": "N6, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:00:00 GMT",
+    "distance_km": "2.7 km",
+    "duration_trafic_m": "5 mins"
+  },
+  {
+    "trip_id": "10010",
+    "destinations": "Unnamed Road, Kumasi, Ghana",
+    "origins": "MCP7+G8J, JK Acheampong Ave, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:00:00 GMT",
+    "distance_km": "6.5 km",
+    "duration_trafic_m": "8 mins"
+  },
+  {
+    "trip_id": "10008",
+    "destinations": "Unnamed Road, Kumasi, Ghana",
+    "origins": "Bomso top high opp luv fm Kumasi-tech junction, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:00:00 GMT",
+    "distance_km": "6.4 km",
+    "duration_trafic_m": "10 mins"
+  },
+  {
+    "trip_id": "10013",
+    "destinations": "N6, Kumasi, Ghana",
+    "origins": "Anloga Junction, MCQ3+6JG, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:00:00 GMT",
+    "distance_km": "6.2 km",
+    "duration_trafic_m": "9 mins"
+  },
+  {
+    "trip_id": "10001",
+    "destinations": "MCPG+GCX KNUST University Hospital, N6, Kumasi, Ghana",
+    "origins": "PF3C+9CV, Afia-kobi Street, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:00:00 GMT",
+    "distance_km": "7.1 km",
+    "duration_trafic_m": "12 mins"
+  },
+  {
+    "trip_id": "10013",
+    "destinations": "N6, Kumasi, Ghana",
+    "origins": "Anloga Junction, MCQ3+6JG, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:30:00 GMT",
+    "distance_km": "6.2 km",
+    "duration_trafic_m": "9 mins"
+  },
+  {
+    "trip_id": "10001",
+    "destinations": "MCPG+GCX KNUST University Hospital, N6, Kumasi, Ghana",
+    "origins": "PF3C+9CV, Afia-kobi Street, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:30:00 GMT",
+    "distance_km": "7.1 km",
+    "duration_trafic_m": "12 mins"
+  },
+  {
+    "trip_id": "10006",
+    "destinations": "Bomso top high opp luv fm Kumasi-tech junction, Kumasi, Ghana",
+    "origins": "N6, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:30:00 GMT",
+    "distance_km": "2.7 km",
+    "duration_trafic_m": "5 mins"
+  },
+  {
+    "trip_id": "10011",
+    "destinations": "B56 Bomso Cres, Kumasi, Ghana",
+    "origins": "Unnamed Road, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:30:00 GMT",
+    "distance_km": "4.6 km",
+    "duration_trafic_m": "8 mins"
+  },
+  {
+    "trip_id": "10010",
+    "destinations": "Unnamed Road, Kumasi, Ghana",
+    "origins": "MCP7+G8J, JK Acheampong Ave, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:30:00 GMT",
+    "distance_km": "6.5 km",
+    "duration_trafic_m": "8 mins"
+  },
+  {
+    "trip_id": "10003",
+    "destinations": "MCPG+GCX KNUST University Hospital, N6, Kumasi, Ghana",
+    "origins": "Unnamed Road, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:30:00 GMT",
+    "distance_km": "4.5 km",
+    "duration_trafic_m": "7 mins"
+  },
+  {
+    "trip_id": "10005",
+    "destinations": "Bomso top high opp luv fm Kumasi-tech junction, Kumasi, Ghana",
+    "origins": "302 Kumasi - Ejisu Rd, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:30:00 GMT",
+    "distance_km": "2.2 km",
+    "duration_trafic_m": "4 mins"
+  },
+  {
+    "trip_id": "10008",
+    "destinations": "Unnamed Road, Kumasi, Ghana",
+    "origins": "Bomso top high opp luv fm Kumasi-tech junction, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:30:00 GMT",
+    "distance_km": "6.4 km",
+    "duration_trafic_m": "10 mins"
+  },
+  {
+    "trip_id": "10012",
+    "destinations": "N6, Kumasi, Ghana",
+    "origins": "Anloga Junction, MCQ3+6JG, Kumasi, Ghana",
+    "departure_date": "Sat, 16 Jul 2022 20:30:00 GMT",
+    "distance_km": "6.2 km",
+    "duration_trafic_m": "9 mins"
   }
 ]
