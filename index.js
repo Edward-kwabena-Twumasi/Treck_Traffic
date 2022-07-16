@@ -52,11 +52,13 @@ const stop=calender[0].stop_date.split(".");
 //construct datetime called startTime
 var day=start[0]*1,month=start[1]*1,year=start[2]*1;
 const startTime = new Date(Date.UTC(year,month-1,day));
+const compStartTime=new Date(Date.UTC(year,month-1,day+1));
 console.log(`Calender start date : ${startTime}`);
 //get day,month and year from stop date and 
 //construct dateTime from it
 var sday=stop[0]*1,smonth=stop[1]*1,syear=stop[2]*1;
 const endTime = new Date(Date.UTC(syear,smonth-1,sday));
+const compEndTime=new Date(Date.UTC(syear,smonth-1,sday+1));
 console.log("Calender stop date : "+endTime.toUTCString());
 //Make backup of files
 backup.backupFiles()
@@ -142,7 +144,7 @@ else if (runTime<preProcess.startTime){
 
       const currentDateTime = new Date();
 
-      if (checkValidDay(days[currentDateTime.getDay()]) && currentDateTime>=startTime && currentDateTime<=endTime) {
+      if (checkValidDay(days[currentDateTime.getDay()]) && currentDateTime>=startTime && currentDateTime<compEndTime) {
       console.log(`On ${days[currentDateTime.getDay()]} requests can be made per calender`)
       console.log(' Today is');
       console.log(days[currentDateTime.getDay()]);
@@ -177,7 +179,7 @@ const job = schedule.scheduleJob({ start: startTime, end: endTime, hour:runTime,
     }
       const currentDateTime = new Date();
 
-      if (checkValidDay(days[currentDateTime.getDay()]) && currentDateTime>=startTime && currentDateTime<=endTime) {
+      if (checkValidDay(days[currentDateTime.getDay()]) && currentDateTime>=startTime && currentDateTime<=compEndTime) {
       console.log(`On ${days[currentDateTime.getDay()]} requests can be made per caldender`)
       console.log(' Today is');
       console.log(days[currentDateTime.getDay()]);

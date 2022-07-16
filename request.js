@@ -40,8 +40,8 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
                   .then((data) => {
                   
                   storeExcelDb(currentDatabase);
-                  console.log("Current database")
-                  console.log(currentDatabase)
+                  console.log("Current database after a request")
+                  console.log(currentDatabase[0])
                  // exports.Current=currentDatabase
 
                   })
@@ -53,37 +53,7 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
                           
                 });
           
-              //})
-          //If ouput json file doesnt exist
-          //Catch error and create anew
-          // .catch ((error) =>{
-
-          //   console.log("Now creating output json database")
-
-          //   currentDatabase.push({"trip_id":requestId,
-          //   "destinations":destinations,
-          //   "origins":origins,
-          //   "departure_date":requestTime,"distance_km":distance_km.text,"duration_trafic_m":duration_traffic_m.text});
-
-          //   //write output json file
-          //   fs.writeFile("./output/output.json",JSON.stringify(currentDatabase,null,2))
-          //   .then((data) => {
-            
-          //   storeExcelDb(currentDatabase);
-
-          //   })
-          //   //catch error if failed
-          // .catch((error) =>
-
-          //  {
-          //   console.log("Couldnt store output @ request.js")
-
-            
-                    
-          // });
-
-          //});
-
+             
     //Catch errors if requests couldnt be made 
     } catch (error) {
       if (error.response) {
@@ -96,7 +66,12 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
        // console.log(error)
       }
       else
-      console.log("Error occured making request")
+      {
+        
+        console.log("Error occured making request");
+        console.log(error)
+      
+      }
     }
   }
 
