@@ -1,4 +1,6 @@
 
+'use strict'
+
 const schedule = require('node-schedule');
 const fs = require('fs/promises');
 const getTraffic=require('./request')

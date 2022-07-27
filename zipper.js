@@ -1,3 +1,5 @@
+
+'use strict'
 const JSZip = require("jszip");
 const fs=require("fs")
 const zip = new JSZip();

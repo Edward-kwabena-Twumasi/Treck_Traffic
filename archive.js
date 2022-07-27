@@ -1,5 +1,6 @@
 //Archive file has funtions created to handle file archiving
 //Based on a defined creiteria
+'use strict'
 const fs=require("fs")
 const path=require('path')
 const myxlsx=require("xlsx");
@@ -26,7 +27,7 @@ else{
     range = myxlsx.utils.decode_range(sheet2["!ref"]);
     }  
   var newdata=[]
-  if (stats.size/1024>2048 || range.e.r>1500) {
+  if (stats.size/1024>5120 || range.e.r>500000) {
 
     //read json output file
     fs.readFile(filename, (err, data) => {

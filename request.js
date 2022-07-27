@@ -1,3 +1,4 @@
+'use strict'
 const axios = require('axios');
 const fs = require('fs/promises');
 const myxlsx=require("xlsx");

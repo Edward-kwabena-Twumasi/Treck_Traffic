@@ -25,7 +25,9 @@ var mysheets=input_work_book.SheetNames;
 var trip_times=input_work_book.Sheets[mysheets[3]];
 var od_pairs=input_work_book.Sheets[mysheets[1]];
 
-var trip_times=myxlsx.utils.sheet_to_json(trip_times);
+ trip_times=myxlsx.utils.sheet_to_json(trip_times);
+
+ //console.log(trip_times)
 var odpairs=myxlsx.utils.sheet_to_json(od_pairs);
  
 //all request times
@@ -50,18 +52,21 @@ var time_ids_array=[]
  function createReqTimes(startime,stoptime,timestep,timesforid) {
   
     reqtimes=[]
-    var start=startime;
-    var stop=stoptime;
-    var step=timestep;
+    var start=startime.toString();
+    var stop=stoptime.toString();
+    var step=timestep.toString();
     //push request times for all ids into giant array
     reqtimes.push((start.split(".")[0]*60 +start.split(".")[1]*1))
     //push request times for a single id into one array
     timesforid.push((start.split(".")[0]*60 +start.split(".")[1]*1))
     //push unique request times
     req_times24hr.push((start.split(".")[0]*60 +start.split(".")[1]*1))
+    //console.log(start+"  "+stop)
     
    var difference=-(start.split(".")[0]*60 +start.split(".")[1]*1)+(stop.split(".")[0]*60+stop.split(".")[1]*1)
-   var periods=difference/step
+
+   //console.log(start+"  "+stop +"1")
+   var periods=difference/step*1
    for (let i = 1; i <= periods; i++) {
     reqtimes.push((  start.split(".")[0]*60 +  start.split(".")[1]*1)+i*timestep)
 

@@ -1,5 +1,6 @@
 
  //Contains funtions for creating backup of files
+ 'use strict'
  var fs = require('fs');
  var path = require('path');
 //copy the $file to $dir2

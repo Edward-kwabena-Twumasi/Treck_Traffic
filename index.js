@@ -36,10 +36,10 @@ try {
   }
 
 
-var calenderSheet=wb.Sheets[mysheets[2]];
-var calender=myxlsx.utils.sheet_to_json(calenderSheet);
-var currentHours; 
-var currentMinutes;
+let calenderSheet=wb.Sheets[mysheets[2]];
+let calender=myxlsx.utils.sheet_to_json(calenderSheet);
+let currentHours; 
+let currentMinutes;
 
 //var archives=[]
 
@@ -50,13 +50,13 @@ const start=calender[0].start_date.split(".");
 const stop=calender[0].stop_date.split(".");
 //get day,month and year from start date and 
 //construct datetime called startTime
-var day=start[0]*1,month=start[1]*1,year=start[2]*1;
+let day=start[0]*1,month=start[1]*1,year=start[2]*1;
 const startTime = new Date(Date.UTC(year,month-1,day));
-const compStartTime=new Date(Date.UTC(year,month-1,day+1));
+//const compStartTime=new Date(Date.UTC(year,month-1,day-1));
 console.log(`Calender start date : ${startTime}`);
 //get day,month and year from stop date and 
 //construct dateTime from it
-var sday=stop[0]*1,smonth=stop[1]*1,syear=stop[2]*1;
+let sday=stop[0]*1,smonth=stop[1]*1,syear=stop[2]*1;
 const endTime = new Date(Date.UTC(syear,smonth-1,sday));
 const compEndTime=new Date(Date.UTC(syear,smonth-1,sday+1));
 console.log("Calender stop date : "+endTime.toUTCString());
@@ -79,9 +79,9 @@ function cal_runtime(startHour,endHour) {
        console.log("There should be at least an hour for program to prepare @ app_calender ,line 51")
       } 
       else {      
-      var remaining=startHour+24-endHour;
+      let remaining=startHour+24-endHour;
   
-      var averageHour=remaining/2
+      let averageHour=remaining/2
   
      
     if ( (startHour-averageHour)>0) {
@@ -105,10 +105,10 @@ function cal_runtime(startHour,endHour) {
 //Calculate run time 
 preProcess.parse_tripTimes()
 preProcess.get_runTime()
-var runTime= cal_runtime(preProcess.startTime,preProcess.endTime)
+let runTime= cal_runtime(preProcess.startTime,preProcess.endTime)
 
 //Declare the days of the week in an array
-var days=["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]
+let days=["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]
 
 function checkValidDay(day) {
   return calender[0][day]
@@ -194,24 +194,6 @@ const job = schedule.scheduleJob({ start: startTime, end: endTime, hour:runTime,
     }
     console.log("----------------------------------")
 
-//   const currentDateTime = new Date();
-//   console.log(' Today is');
-//   console.log(days[currentDateTime.getDay()]);
-
-// manageFiles.createOutputDir(fs,path,dirName,wb,myxlsx,prepareRequests)
-
-// if (cancelinitjob) {
-//   initJob.cancel();
-//   console.log("Cancelling temporary job")
-// }
-
-//   for (const day in days) {
-//     if (checkValidDay(days[day])) {
-//       console.log(`On ${days[day]} we will run the application`)
-//     } else {
-//       console.log(`On ${days[day]}  the application will rest`)
-//     }
-//   }
 
 });
 
@@ -230,19 +212,14 @@ function shutdown(signal) {
       console.log("Shutting down at "+  (new Date().toUTCString()));
     }
     setTimeout(() => {
-      console.log("...waited 5s ,exiting");
+      console.log("...waited 10s ,exiting");
       process.exit(err?1:0)
-    }, 5000).unref();
+    }, 10000).unref();
   }
   
 }
 
-var dynamicData={ title: "Home",message:"12" }
-//Occasional console loggin to tell server is alive
 
-setInterval(() => {
-  console.log("Server is alive")
-}, 50000);
 
 //Set the pug view engine using express
 
@@ -332,7 +309,16 @@ if (err) {
    });
   }
 }
-
+// const field = "heapUsed";
+// setInterval(() => {
+//   const mu = process.memoryUsage();
+//   //// # bytes / KB / MB / GB
+//   const gbNow = mu[field] / 1024 / 1024 / 1024;
+//   const gbRounded = Math.round(gbNow * 100) / 100;
+ 
+//   console.log(`Heap allocated ${gbRounded} GB`);
+  
+// }, 20000);
 
 //Set static files for express serve them
 server.use(express.static(path.join(__dirname, "public")));
@@ -346,5 +332,6 @@ server.listen(port,()=>{
 })
 } catch (error) {
   console.log("Please provide the correct input file.Expected to find input_data.xlsx")
+  console.log("Or some sheets may not contain the right format")
 
 }
