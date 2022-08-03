@@ -80,7 +80,6 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
 function storeExcelDb(outputJson) {
   var output_sheet=myxlsx.utils.json_to_sheet(outputJson,{});
   
-  
   fs.readFile("./output/output_data.xlsx")
     .then((data)=>{
         var output_book= myxlsx.readFile("./output/output_data.xlsx");

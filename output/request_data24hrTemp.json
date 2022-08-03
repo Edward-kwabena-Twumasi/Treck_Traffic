@@ -1,6 +1,6 @@
 [
   {
-    "time": "Tue Jul 26 2022 04:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 04:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -473,7 +473,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 05:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 05:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -946,7 +946,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 06:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 06:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -1419,7 +1419,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 06:30:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 06:30:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -1892,7 +1892,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -2365,7 +2365,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 07:30:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 07:30:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -2838,7 +2838,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 08:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 08:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -3311,7 +3311,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 08:30:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 08:30:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -3784,7 +3784,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 08:45:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 08:45:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -4257,7 +4257,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 09:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 09:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -4730,7 +4730,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 09:15:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 09:15:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -5203,7 +5203,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 09:30:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 09:30:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -5676,7 +5676,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 09:45:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 09:45:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -6149,7 +6149,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 10:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 10:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -6622,7 +6622,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 10:15:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 10:15:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -7095,7 +7095,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 10:30:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 10:30:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -7568,7 +7568,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 10:45:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 10:45:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -8041,7 +8041,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 11:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 11:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -8514,7 +8514,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 12:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 12:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -8987,7 +8987,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 13:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 13:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -9460,7 +9460,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 14:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 14:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -9933,7 +9933,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 15:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 15:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -10406,7 +10406,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 15:30:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 15:30:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -10879,7 +10879,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 16:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 16:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -11352,7 +11352,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 16:30:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 16:30:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -11825,7 +11825,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 17:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 17:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -12298,7 +12298,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 17:30:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 17:30:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -12771,7 +12771,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 18:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 18:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -13244,7 +13244,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 18:30:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 18:30:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -13717,7 +13717,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 19:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 19:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -14190,7 +14190,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 19:30:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 19:30:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -14663,7 +14663,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 20:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 20:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -15136,7 +15136,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 21:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 21:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
@@ -15609,7 +15609,7 @@
     ]
   },
   {
-    "time": "Tue Jul 26 2022 22:00:00 GMT+0000 (Coordinated Universal Time)",
+    "time": "Tue Aug 02 2022 22:00:00 GMT+0000 (Coordinated Universal Time)",
     "strings": [
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.69019495975685%2c-1.58149405988691&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",
       "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.68979399424326%2c-1.57264938488035&origins=6.68733153146897%2c-1.573822731061&mode=driving&traffic_mode=best-guess&departure_time=today&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg",

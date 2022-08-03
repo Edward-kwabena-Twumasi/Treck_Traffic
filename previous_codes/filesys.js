@@ -20,7 +20,6 @@ exports.createOutputDir=function createDir(fs,path,dirName,workBook,myxlsx,prepa
   };
 
 
-  
  fs.mkdir(dirName,  (err,path) => {
   
     if (err && err.code=='EEXIST')
