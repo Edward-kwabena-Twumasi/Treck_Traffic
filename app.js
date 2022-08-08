@@ -294,6 +294,7 @@ return request_data24hr;
 
 
 
+
 exports.readRequestFile=async function readFiles(parse_tripTimes,sort_ttseries,createDayRequests) {
 
  //Try reading the temp file to create main request data for the day 
@@ -358,8 +359,8 @@ fs.readFile("./output/request_data24hrTemp.json")
 .catch((error) =>
 {
  console.log("----------------------------------------------")
- console.log("File not ready for reading @ app.js, line 278 ")
- console.log("Creating it...")
+ console.log("24hr request file not ready for  reading @ app.js, line 278 ")
+ console.log("Creating it now...")
  console.log("----------------------------------------------")
 
 
@@ -391,11 +392,19 @@ fs.readFile("./output/request_data24hrTemp.json")
   
   //* Template request variable *//
   let request_data24hrTemp= createDayRequests()
+  console.log("----------------------------------------------")
+  console.log("----------------------------------------------")
 
   console.log("Creating 24hr requests  file @ app.js,line 356")
+  console.log("----------------------------------------------")
+
   fs.writeFile("./output/request_data24hr.json",JSON.stringify(request_data24hr,null,2))
+
   .then((data) => {
     console.log("Request file for 24 hour period succesfully created @ app.js, line 357")
+    console.log("----------------------------------------------")
+    console.log("----------------------------------------------")
+
 
 
   })
@@ -409,6 +418,10 @@ fs.readFile("./output/request_data24hrTemp.json")
 //**** */
 fs.writeFile("./output/request_data24hrTemp.json",JSON.stringify(request_data24hrTemp,null,2))
 .then((data) => {
+  console.log("----------------------------------------------")
+  console.log("----------------------------------------------")
+  console.log("----------------------------------------------")
+
   console.log("Temporary/template requests data file succesfully created @ app.js, line 368")
   console.log("------------READY TO MAKE REQUESTS-------------")
   requestsNdOutput.makeReqWriteOutput()

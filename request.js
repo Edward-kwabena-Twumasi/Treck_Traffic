@@ -13,7 +13,7 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
     try {
       //Try making a request to distance matrix api using axios
       const response = await axios.get(requestString);
-      console.log(response.data)
+      //console.log(response.data)
       var distance_km , duration_traffic_m,destinations,origins;
       destinations=response.data.destination_addresses[0];
       origins=response.data.origin_addresses[0];
@@ -23,13 +23,9 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
       
        distance_km=response.data.rows[row]["elements"][0].distance;
        duration_traffic_m=response.data.rows[row]["elements"][0].duration_in_traffic;
-        console.log( response.data.rows[row]["elements"][0].distance)
-        console.log( response.data.rows[row]["elements"][0].duration)
-        console.log( response.data.rows[row]["elements"][0].duration_in_traffic)
+       
     } 
-     // fs.readFile("./output/output.json")
-            //   .then((data) => {
-            //    currentDatabase=JSON.parse(data);
+     
 
                 currentDatabase.push({"trip_id":requestId,
                 "destinations":destinations,
