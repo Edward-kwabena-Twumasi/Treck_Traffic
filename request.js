@@ -13,6 +13,7 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
     try {
       //Try making a request to distance matrix api using axios
       const response = await axios.get(requestString);
+      //console.log(response);
       //console.log(response.data)
       var distance_km , duration_traffic_m,destinations,origins;
       destinations=response.data.destination_addresses[0];
@@ -76,26 +77,6 @@ exports.getTrafficInfo= async function getTrafficInfo(requestString,currentDatab
 function storeExcelDb(outputJson) {
   var output_sheet=myxlsx.utils.json_to_sheet(outputJson,{});
   
-  
-  fs.readFile("./output/output_data.xlsx")
-    .then((data)=>{
-        var output_book= myxlsx.readFile("./output/output_data.xlsx");
-        if (output_book.SheetNames.indexOf("request_output")>=0) {
-          console.log("Update output database")
-          output_book.Sheets["request_output"]=output_sheet;
-            fs.rm("./output/output_data.xlsx")
-            .then(()=>{
-              myxlsx.writeFile(output_book,"./output/output_data.xlsx")
-              
-            })
-            .catch((eror)=>console.log("Error writing to output excel file@request.js"));
-        } 
-        else {
-        
-          myxlsx.utils.book_append_sheet(output_book,output_sheet,"request_output")
-        }
-    })
-  .catch((error)=>{
       console.log("Creating the output file..............")
       var new_book=myxlsx.utils.book_new();
       myxlsx.utils.book_append_sheet(new_book,output_sheet,"request_output")
@@ -108,6 +89,6 @@ function storeExcelDb(outputJson) {
             console.log("Couldnt add output file @ request.js line 88")
         }
  
-  })
+ 
 
 }

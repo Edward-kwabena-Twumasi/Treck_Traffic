@@ -7,8 +7,8 @@ const getTraffic=require('./request')
 const Stream = require('stream');
 
 var allrequests=0;
-var currentDatabase=[];
-var requestFileData=[];
+var currentDatabase="";
+var requestFileData="";
 
 //function begins
 
@@ -19,26 +19,27 @@ exports.makeReqWriteOutput=
 
 //read json database file using read srteams
 
-  let readJsonDatabase = fs.createReadStream("./output/output.json");
+  let readJsonDatabase = fs.createReadStream("./output/output.json",{ encoding: 'utf8' });
 
   //write stream for json database declaraiton
   const writeJsonData = new Stream.Writable();
 
-  let readJsonRequestsFile=fs.createReadStream("./output/request_data24hr.json");
+  let readJsonRequestsFile=fs.createReadStream("./output/request_data24hr.json",{ encoding:'utf8' });
+
   //write stream for request file declaration
-  const writeJRequests = new Stream.Writable();
+  const writeRequests = new Stream.Writable();
 
 //write streams for request file
-  writeJRequests._write = (chunk, {}, next) => {
+  writeRequests._write = (chunk, {}, next) => {
     // console.log(chunk.toString());
-     currentDatabase.push(chunk.toString());
+     requestFileData += chunk;
      next();
      };
 
   //write stream for json database
   writeJsonData._write = (chunk, {}, next) => {
  // console.log(chunk.toString());
-  currentDatabase.push(chunk.toString());
+  currentDatabase+=chunk;
   next();
   };
 
@@ -49,20 +50,23 @@ exports.makeReqWriteOutput=
   
     console.log("currentDatabase");
     currentDatabase=JSON.parse(currentDatabase);
-    console.log(currentDatabase);
+    console.log(currentDatabase[currentDatabase.length-1]);
 
-   
-  fs.readFile("./output/request_data24hr.json",(err,data) => {
-  
-    if (err) {
-      throw err;
-    }
+//pipe read rwuest stream to write stream
+   readJsonRequestsFile.pipe(writeRequests);
+//read stream on end
+   readJsonRequestsFile.on('end',function(){
+    
     console.log("############################################");
     console.log("Reading and scheduling requests right now");
     console.log("############################################");
 
-
-    const requestArray=JSON.parse(data);
+    //console.log(requestFileData);
+    console.log("Request files");
+    requestFileData=JSON.parse(requestFileData);
+    const requestArray=requestFileData;
+   // console.log(requestFileData[requestFileData.length-1]);
+   
   
     for (const request in requestArray) {
    dates.push(new Date(requestArray[request].time));
@@ -97,10 +101,18 @@ exports.makeReqWriteOutput=
     
     }
     console.log(`Scheduled  ${allrequests} requests  @ cron.js, line 50`);
-  
+
+   })
+   //read request file stream on error
+   readJsonRequestsFile.on('error',function(){
+
+    throw erroor;
   })
 
+
 });
+
+//error reading json database
 readJsonDatabase.on('error', function(err) { 
  console.log(err); 
  throw err;
@@ -108,6 +120,7 @@ readJsonDatabase.on('error', function(err) {
 });
 
 } 
+
 catch (error) {
   console.log("An error occured in catch block")
     console.log(error)

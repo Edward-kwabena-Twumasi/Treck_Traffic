@@ -1,15 +1,8 @@
 const fs=require("fs")
 const Stream = require('stream');
 const path=require("path")
-var chunk=
-  [{
-    "trip_id": "153",
-    "destinations": "PF89+JJ4, Ejisu, Ghana",
-    "origins": "MCRG+2V7, Kumasi, Ghana",
-    "departure_date": "Wed, 27 Jul 2022 22:00:00 GMT",
-    "distance_km": "8.5 km",
-    "duration_trafic_m": "15 mins"
-  }]
+var chunks="";
+  
 const mybuff=Buffer.alloc(200)
 
 //exports.readFileStream= 
@@ -33,6 +26,7 @@ let readFile=(file)=>{
         dest._write = (chunk, encoding, next) => {
        // console.log(chunk.toString());
          data.push(chunk);
+         chunks+=chunk;
         
         // source1.push(chunk);
         next();
@@ -44,16 +38,14 @@ let readFile=(file)=>{
   
     source.pipe(dest1)
     source.pipe(dest);
-    source.on('data', function(chunk) { 
-      console.log("new data in")
-      //console.log(chunk.toString()); 
-      newdata.push(chunk);
-      mybuff.write(chunk.toString())
-  });
+    
 
     source.on('end', function() { 
-           
-        console.log(JSON.parse(data.toString())[0]); 
+      chunks=JSON.parse(chunks.toString());  
+           //data=JSON.parse(data.toString());
+        console.log(chunks[chunks.length-1]);
+        console.log(data.length);
+
     });
     
 
@@ -65,8 +57,8 @@ let readFile=(file)=>{
       throw err; 
     
     });
-    console.log("My buffer"); 
-    console.log(mybuff.toString()); 
+    // console.log("My buffer"); 
+    // console.log(mybuff.toString()); 
 
   } catch (error) {
     console.log("Error here")
@@ -77,4 +69,4 @@ let readFile=(file)=>{
   };
 
 
-  readFile("./stream.json")
+  readFile("./request_data24hr.json")

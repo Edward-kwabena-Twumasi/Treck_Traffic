@@ -1,6 +1,6 @@
 //Handles filesystem actions related to creating and recreating output folder and its contents
 'use strict'
-const Stream = require('stream');
+//const Stream = require('stream');
 
 
 exports.createOutputDir=function createDir(fs,path,dirName,workBook,myxlsx,prepareRequests) {
@@ -24,56 +24,71 @@ exports.createOutputDir=function createDir(fs,path,dirName,workBook,myxlsx,prepa
 
   };
 
-
   
  fs.mkdir(dirName,  (err,path) => {
   
     if (err && err.code=='EEXIST')
     {
-      fs.readFile("./output/output.json",(err, data)=>{
-       if (err) {
-        console.log("No starter output file found yet")
-       }
-       else{
+     
         copyFile("./output/output.json","./archivehistorybackup")
 
-       }
-      })
-      
       
         console.log("Making new ouput directory... @ filesys.js, line 19")
-
-        fs.rm(dirName, { recursive: true },  () => {
-          console.log("Output folder deleted")
-          fs.mkdir(dirName,  () => {
-        
-            console.log("Output Folder recreated succesfullly @ filesys.js ,line 14")
+        console.log("Output Folder recreated succesfullly @ filesys.js ,line 14")
             
-            myxlsx.writeFile(workBook,"./output/input_data.xlsx")
+        myxlsx.writeFile(workBook,"./output/input_data.xlsx")
 
-            fs.readFile("./archivehistorybackup/output.json",(err, data)=>{
-              if (err) {
-               console.log("No starter output file backup found yet")
-               fs.writeFile("./output/output.json",JSON.stringify([]),()=>{
+        // fs.readFile("./archivehistorybackup/output.json",(err, data)=>{
+        //   if (err) {
+        //    console.log("No starter output file backup found yet")
+        //    fs.writeFile("./output/output.json",JSON.stringify([]),()=>{
 
-               })
-              }
-              else{
-                copyFile("./archivehistorybackup/output.json","./output")
-       
-              }
-             })
-            
-
-            console.log("input file created @ filesys, line 18")
-
-            setTimeout(() => {
-              prepareRequests()
-            }, 3000);
+        //    })
+        //   }
+        //   else{
+        //     copyFile("./archivehistorybackup/output.json","./output")
    
-      });
+        //   }
+        //  })
+        
 
-      });
+        console.log("input file created @ filesys, line 18")
+
+        setTimeout(() => {
+          prepareRequests()
+        }, 5000);
+
+      //   fs.rm(dirName, { recursive: true },  () => {
+      //     console.log("Output folder deleted")
+      //     fs.mkdir(dirName,  () => {
+        
+      //       console.log("Output Folder recreated succesfullly @ filesys.js ,line 14")
+            
+      //       myxlsx.writeFile(workBook,"./output/input_data.xlsx")
+
+      //       fs.readFile("./archivehistorybackup/output.json",(err, data)=>{
+      //         if (err) {
+      //          console.log("No starter output file backup found yet")
+      //          fs.writeFile("./output/output.json",JSON.stringify([]),()=>{
+
+      //          })
+      //         }
+      //         else{
+      //           copyFile("./archivehistorybackup/output.json","./output")
+       
+      //         }
+      //        })
+            
+
+      //       console.log("input file created @ filesys, line 18")
+
+      //       setTimeout(() => {
+      //         prepareRequests()
+      //       }, 3000);
+   
+      // });
+
+      // });
         
          
     }
@@ -82,6 +97,10 @@ exports.createOutputDir=function createDir(fs,path,dirName,workBook,myxlsx,prepa
       {
       
       myxlsx.writeFile(workBook,"./output/input_data.xlsx")
+      fs.writeFile("./output/output.json",JSON.stringify([],null,2))
+      setTimeout(() => {
+        prepareRequests()
+      }, 5000);
 
       }
 

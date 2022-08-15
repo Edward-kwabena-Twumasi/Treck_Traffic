@@ -68,7 +68,7 @@ var time_ids_array=[]
    //console.log(start+"  "+stop +"1")
    var periods=difference/step*1
    for (let i = 1; i <= periods; i++) {
-    reqtimes.push((  start.split(".")[0]*60 +  start.split(".")[1]*1)+i*timestep)
+    reqtimes.push((start.split(".")[0]*60 +  start.split(".")[1]*1)+i*timestep)
 
     timesforid.push((start.split(".")[0]*60 +  start.split(".")[1]*1)+i*timestep)
 
@@ -119,7 +119,7 @@ ids=[]
     createReqTimes(starttimes[j],stoptimes[j],steps[j],timesfroneid) 
     
   }
-    totalreqtimes.push({"id":ids+"",reqtimes:timesfroneid})
+    totalreqtimes.push({"id":ids.toString(),reqtimes:timesfroneid})
   trip_time_series.push({})
 
 });
@@ -169,7 +169,7 @@ for (let ob = 0; ob < totalreqtimes.length; ob++) {
 
   for (let t = 0; t < req_times24hr.length; t++) {
   if (totalreqtimes[ob]["reqtimes"].includes(req_times24hr[t])) {
-    trip_time_series[ob][ req_times24hr[t]]=1
+    trip_time_series[ob][req_times24hr[t]]=1
   } else {
     trip_time_series[ob][req_times24hr[t]]=0
   }
@@ -223,7 +223,7 @@ var month = today.getUTCMonth() ; //months from 1-12
 var day = today.getUTCDate();
 var year = today.getUTCFullYear();
 
-  const hour=parseInt( obj1.time*1/60);
+  const hour=parseInt(obj1.time*1/60);
   const min=obj1.time*1%60;
     const departure = new Date(year, month, day, hour, min);
     const timemil=departure.getTime()
@@ -276,7 +276,7 @@ var ids=[]
      
      if (odpairs[k].trip_id==timeAndIds.ids[m]) {
        
-    var string= genRequestString(odpairs[k],"AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg","driving","best-guess",timeAndIds,string)
+    var string= genRequestString(odpairs[k],"AIzaSyALj7OEAwybMvAvcHzdapUNcGy-8PJ4SQw","driving","best-guess",timeAndIds,string)
     strings.push(string)
     ids.push(id)
     
@@ -297,7 +297,8 @@ return request_data24hr;
 
 exports.readRequestFile=async function readFiles(parse_tripTimes,sort_ttseries,createDayRequests) {
 
- //Try reading the temp file to create main request data for the day 
+  //let readTempRequestFile = fs.createReadStream("./output/output.json",{ encoding: 'utf8' });
+   //Try reading the temp file to create main request data for the day 
 fs.readFile("./output/request_data24hrTemp.json")
 .then((data) => {
   var getdata=JSON.parse(data);
@@ -308,7 +309,7 @@ fs.readFile("./output/request_data24hrTemp.json")
   for (const obj in getdata) {
       let recentDate=new Date(getdata[obj].time);
       let newDate=new Date();
-      let nextday = newDate.getUTCDate()+1;
+      let nextday = newDate.getUTCDate();
       let month = newDate.getUTCMonth() ; //months from 1-12
       let year =newDate.getUTCFullYear();
       let hour=recentDate.getUTCHours();
