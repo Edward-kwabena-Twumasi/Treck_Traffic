@@ -5,6 +5,7 @@
 const myxlsx=require("xlsx");
 
 const fs = require('fs/promises')
+const streamfs=require('fs')
 const requestsNdOutput=require('./cron')
 
 //Read input file from the output folder 
@@ -296,22 +297,21 @@ return request_data24hr;
 
 
 exports.readRequestFile=async function readFiles(parse_tripTimes,sort_ttseries,createDayRequests) {
-  var requestFileData="";
-  let readJsonTempRequestFile = fs.createReadStream("./output/request_data24hrTemp.json",{ encoding: 'utf8' });
+  var TempRequestFileData="";
+  let readJsonTempRequestFile = streamfs.createReadStream("./output/request_data24hrTemp.json",{ encoding: 'utf8' });
   const writeTempRequests = new Stream.Writable();
   //write streams for request file
    writeTempRequests._write = (chunk, {}, next) => {
     // console.log(chunk.toString());
-     requestFileData += chunk;
+    TempRequestFileData += chunk;
      next();
      };
   
      readJsonTempRequestFile.pipe(writeTempRequests);
 
    //Try reading the temp file to create main request data for the day 
-fs.readFile("./output/request_data24hrTemp.json")
-.then((data) => {
-  var getdata=JSON.parse(data);
+readJsonTempRequestFile.on('end', function() {
+  var getdata=JSON.parse(TempRequestFileData);
   console.log("----------------------------------------------------")
   console.log("Updating the requests data file @ app.js ,line 283 ")
   console.log("---------------------------------------------------")
@@ -367,8 +367,8 @@ fs.readFile("./output/request_data24hrTemp.json")
 //#####
 //If this file in question doesnt exist 
 
-.catch((error) =>
-{
+readJsonTempRequestFile.on('error', function(err) { 
+  console.log(err); 
  console.log("----------------------------------------------")
  console.log("24hr request file not ready for  reading @ app.js, line 278 ")
  console.log("Creating it now...")
