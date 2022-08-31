@@ -228,7 +228,7 @@ var year = today.getUTCFullYear();
   const hour=parseInt(obj1.time*1/60);
   const min=obj1.time*1%60;
     const departure = new Date(year, month, day, hour, min);
-    const timemil=departure.getTime()
+    //const timemil=departure.getTime()
     var destinations=`${obj.origin_latitude}%2c${obj.origin_longitude}`;
     var origins=`${obj.destination_latitude}%2c${obj.destination_longitude}`;
     var baseUrl="https://maps.googleapis.com/maps/api/distancematrix/json";
@@ -328,11 +328,11 @@ readJsonTempRequestFile.on('end', function() {
       let minutes=recentDate.getUTCMinutes();
       
       let nextDate=new Date(year,month,nextday,hour,minutes);
-      let timeeMilliseconds=nextDate.getTime();
+      let timeinSeconds=nextDate.getTime()/1000;
       let newStrings=[];
       
       getdata[obj].strings.forEach(element => {
-        newStrings.push(element.replace("today",`${timeeMilliseconds}`))
+        newStrings.push(element.replace("today",`${timeinSeconds}`))
       });
        
       getdata[obj].time=`${nextDate}`
@@ -392,10 +392,10 @@ readJsonTempRequestFile.on('error', function(err) {
 
     const nextDate=new Date(year,month,nextday,hour,minutes);
 
-    let timeeMilliseconds=nextDate.getTime();
+    let timeinSeconds=nextDate.getTime()/1000;
     var newStrings=[];
     request_data24hr[obj].strings.forEach(element => {
-      newStrings.push(element.replace("today",`${timeeMilliseconds}`))
+      newStrings.push(element.replace("today",`${timeinSeconds}`))
     });
      request_data24hr[obj].time=`${nextDate.toUTCString()}`
 
