@@ -296,8 +296,18 @@ return request_data24hr;
 
 
 exports.readRequestFile=async function readFiles(parse_tripTimes,sort_ttseries,createDayRequests) {
+  var requestFileData="";
+  let readJsonTempRequestFile = fs.createReadStream("./output/request_data24hrTemp.json",{ encoding: 'utf8' });
+  const writeTempRequests = new Stream.Writable();
+  //write streams for request file
+   writeTempRequests._write = (chunk, {}, next) => {
+    // console.log(chunk.toString());
+     requestFileData += chunk;
+     next();
+     };
+  
+     readJsonTempRequestFile.pipe(writeTempRequests);
 
-  //let readTempRequestFile = fs.createReadStream("./output/output.json",{ encoding: 'utf8' });
    //Try reading the temp file to create main request data for the day 
 fs.readFile("./output/request_data24hrTemp.json")
 .then((data) => {
