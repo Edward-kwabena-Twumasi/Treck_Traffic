@@ -6,4 +6,20 @@
 4.Do npm install
 5. Run npm start and and navigate to localhost:5000 on your local computer
 
+###About this application
+This is a node js application for automating google traffic data extraction .
+
+Input in the form of an excel file with sheets containing query parameters to the api,
+origin destination pairs, a calender and a 24 hour request timeline sheet containing times and ids.
+
+At onstart, the calender sheet is read and handed to a cron schedule to determine validity of the day 
+of execution. 
+Program proceeds to schedule a date interval if calender allows, then timeline sheet is read and parsed into ids and request times.
+Next, cordinates sheet is read and combined with the time and ids to create a 24 hour request file detailing all times in a day,
+and all requests to be made in that day .
+
+This preprocessed format is handed to a sheduler that does a one time scheduling for each 24 hours within the calender period.
+For each new day, the request file is updated to use the particular days timestaps in the requests.
+
+
 Developer contact:createdliving1000@gmail.com

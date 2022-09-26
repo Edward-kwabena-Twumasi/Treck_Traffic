@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.1",
+    "dotenv": "^16.0.2",
     "express": "^4.17.3",
     "jszip": "^3.9.1",
     "node-schedule": "^2.1.0",

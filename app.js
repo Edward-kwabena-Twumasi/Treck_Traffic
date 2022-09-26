@@ -8,7 +8,9 @@ const fs = require('fs/promises')
 const streamfs=require('fs')
 const requestsNdOutput=require('./cron')
 const Stream = require('stream');
+require("dotenv").config()
 
+const google_api_key=process.env.google_api_key
 //Read input file from the output folder 
 //if it yet exists or access it from root folder
 
@@ -278,7 +280,7 @@ var ids=[]
      
      if (odpairs[k].trip_id==timeAndIds.ids[m]) {
        
-    var string= genRequestString(odpairs[k],"AIzaSyALj7OEAwybMvAvcHzdapUNcGy-8PJ4SQw","driving","best-guess",timeAndIds,string)
+    var string= genRequestString(odpairs[k],google_api_key,"driving","best-guess",timeAndIds,string)
     strings.push(string)
     ids.push(id)
     
