@@ -115,7 +115,7 @@ exports.makeReqWriteOutput=
 //error reading json database
 readJsonDatabase.on('error', function(err) { 
  console.log(err); 
- throw err;
+ 
 
 });
 
@@ -124,6 +124,7 @@ readJsonDatabase.on('error', function(err) {
 catch (error) {
   console.log("An error occured in catch block")
     console.log(error)
+   
   }
 
 }

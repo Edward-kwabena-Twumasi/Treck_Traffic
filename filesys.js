@@ -8,6 +8,7 @@ exports.createOutputDir=function createDir(fs,path,dirName,workBook,myxlsx,prepa
   let copyFile = (file, dir)=>{
     
     let f = path.basename(file);
+    //console.log(f);
     let source = fs.createReadStream(file);
     let dest = fs.createWriteStream(path.resolve(dir, f));
   
@@ -18,6 +19,11 @@ exports.createOutputDir=function createDir(fs,path,dirName,workBook,myxlsx,prepa
     source.on('error', function(err) { 
       
       console.log(`${file} not yet available`); 
+      if (f=="output.json") {
+        fs.writeFile("./output/output.json",JSON.stringify([]),()=>{
+          console.log("istantiated output backup file")
+                     })
+      }
     
     
     });

@@ -5,6 +5,10 @@
 3.Ensure all packages exist by running npm install from terminal pointing to project root
 4.Do npm install
 5. Run npm start and and navigate to localhost:5000 on your local computer
+6. Please check for the following line in the package.json file and update the node version that was installed appropriately
+"engines": {
+    "node": "16.14.2"
+  }
 
 ###About this application
 This is a node js application for automating google traffic data extraction .
